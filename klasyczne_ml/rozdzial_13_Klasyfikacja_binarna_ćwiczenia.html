@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Klasyfikacja binarna - ćwiczenia &#8212; My sample book</title>
+    <title>Klasyfikacja binarna - ćwiczenia &#8212; Elementarne uczenie maszynowe</title>
   
   
   
@@ -100,8 +100,8 @@
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -153,8 +153,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Elementarne uczenie maszynowe - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Elementarne uczenie maszynowe - Home"/>`);</script>
   
   
 </a></div>
@@ -171,14 +171,6 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
-                </a>
-            </li>
-        </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_01_Wst%C4%99p_do_uczenia_maszynowego.html">Wstęp do uczenia maszynowego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_02_Rodzaje_uczenia_maszynowego.html">Rodzaje uczenia maszynowego</a></li>
@@ -242,50 +234,18 @@
 <div class="article-header-buttons">
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/maciej-janowicz/ml-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fklasyczne_ml/rozdzial_13_Klasyfikacja_binarna_ćwiczenia.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -444,387 +404,401 @@ Requirement already satisfied: scipy in /home/maciej/anaconda3/lib/python3.12/si
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/115.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/115.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.3/115.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.3/115.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.5/115.9 MB</span> <span class=" -Color -Color-Red">840.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:18</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.3/115.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.0/115.9 MB</span> <span class=" -Color -Color-Red">1.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:01:26</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.5/115.9 MB</span> <span class=" -Color -Color-Red">409.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:04:42</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.3/115.9 MB</span> <span class=" -Color -Color-Red">1.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:01:18</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.5/115.9 MB</span> <span class=" -Color -Color-Red">409.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:04:42</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.8/115.9 MB</span> <span class=" -Color -Color-Red">1.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:01:10</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.8/115.9 MB</span> <span class=" -Color -Color-Red">500.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:51</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.4/115.9 MB</span> <span class=" -Color -Color-Red">1.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:01:02</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.8/115.9 MB</span> <span class=" -Color -Color-Red">500.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:51</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.9/115.9 MB</span> <span class=" -Color -Color-Red">2.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:58</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.0/115.9 MB</span> <span class=" -Color -Color-Red">565.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:24</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.1/115.9 MB</span> <span class=" -Color -Color-Red">2.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:58</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.3/115.9 MB</span> <span class=" -Color -Color-Red">622.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:05</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.7/115.9 MB</span> <span class=" -Color -Color-Red">2.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:58</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.3/115.9 MB</span> <span class=" -Color -Color-Red">622.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:05</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.2/115.9 MB</span> <span class=" -Color -Color-Red">2.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:56</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.6/115.9 MB</span> <span class=" -Color -Color-Red">615.1 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:06</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.0/115.9 MB</span> <span class=" -Color -Color-Red">2.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:51</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.6/115.9 MB</span> <span class=" -Color -Color-Red">615.1 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:06</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.8/115.9 MB</span> <span class=" -Color -Color-Red">2.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:48</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.8/115.9 MB</span> <span class=" -Color -Color-Red">642.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:58</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.3/115.9 MB</span> <span class=" -Color -Color-Red">2.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:48</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.1/115.9 MB</span> <span class=" -Color -Color-Red">662.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:52</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.8/115.9 MB</span> <span class=" -Color -Color-Red">2.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:47</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.1/115.9 MB</span> <span class=" -Color -Color-Red">662.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:52</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">7.3/115.9 MB</span> <span class=" -Color -Color-Red">2.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:45</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.4/115.9 MB</span> <span class=" -Color -Color-Red">679.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:48</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">8.1/115.9 MB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:44</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.6/115.9 MB</span> <span class=" -Color -Color-Red">705.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:41</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">8.9/115.9 MB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:43</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.6/115.9 MB</span> <span class=" -Color -Color-Red">705.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:41</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">10.0/115.9 MB</span> <span class=" -Color -Color-Red">2.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:40</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.9/115.9 MB</span> <span class=" -Color -Color-Red">722.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:37</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.3/115.9 MB</span> <span class=" -Color -Color-Red">2.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:37</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.9/115.9 MB</span> <span class=" -Color -Color-Red">722.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:37</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.1/115.9 MB</span> <span class=" -Color -Color-Red">2.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:36</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.1/115.9 MB</span> <span class=" -Color -Color-Red">715.8 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:38</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">13.1/115.9 MB</span> <span class=" -Color -Color-Red">3.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:35</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.4/115.9 MB</span> <span class=" -Color -Color-Red">734.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:34</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">14.2/115.9 MB</span> <span class=" -Color -Color-Red">3.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:33</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.7/115.9 MB</span> <span class=" -Color -Color-Red">760.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:28</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">15.2/115.9 MB</span> <span class=" -Color -Color-Red">3.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:32</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.9/115.9 MB</span> <span class=" -Color -Color-Red">783.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:23</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.0/115.9 MB</span> <span class=" -Color -Color-Red">3.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:31</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.2/115.9 MB</span> <span class=" -Color -Color-Red">811.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:18</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">17.3/115.9 MB</span> <span class=" -Color -Color-Red">3.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:30</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.5/115.9 MB</span> <span class=" -Color -Color-Red">817.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:17</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">18.4/115.9 MB</span> <span class=" -Color -Color-Red">3.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:29</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">19.4/115.9 MB</span> <span class=" -Color -Color-Red">3.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:28</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">20.2/115.9 MB</span> <span class=" -Color -Color-Red">3.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:28</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">21.5/115.9 MB</span> <span class=" -Color -Color-Red">3.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:27</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">22.5/115.9 MB</span> <span class=" -Color -Color-Red">3.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:26</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">23.9/115.9 MB</span> <span class=" -Color -Color-Red">3.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:25</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">24.9/115.9 MB</span> <span class=" -Color -Color-Red">3.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:24</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">26.0/115.9 MB</span> <span class=" -Color -Color-Red">3.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:24</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">27.3/115.9 MB</span> <span class=" -Color -Color-Red">3.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:23</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">28.6/115.9 MB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:22</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">29.4/115.9 MB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:22</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">30.1/115.9 MB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:22</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">30.9/115.9 MB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:22</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">31.5/115.9 MB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:22</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">32.2/115.9 MB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:22</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">33.6/115.9 MB</span> <span class=" -Color -Color-Red">4.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:21</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">34.9/115.9 MB</span> <span class=" -Color -Color-Red">4.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:20</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">36.2/115.9 MB</span> <span class=" -Color -Color-Red">4.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:20</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">37.5/115.9 MB</span> <span class=" -Color -Color-Red">4.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:19</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">38.5/115.9 MB</span> <span class=" -Color -Color-Red">4.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:19</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.7/115.9 MB</span> <span class=" -Color -Color-Red">831.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:14</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">39.8/115.9 MB</span> <span class=" -Color -Color-Red">4.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:18</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.2/115.9 MB</span> <span class=" -Color -Color-Red">532.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:28</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">41.4/115.9 MB</span> <span class=" -Color -Color-Red">4.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:18</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.2/115.9 MB</span> <span class=" -Color -Color-Red">532.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:28</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">42.7/115.9 MB</span> <span class=" -Color -Color-Red">4.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:17</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.2/115.9 MB</span> <span class=" -Color -Color-Red">532.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:28</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">44.0/115.9 MB</span> <span class=" -Color -Color-Red">4.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:17</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.5/115.9 MB</span> <span class=" -Color -Color-Red">525.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:31</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">45.4/115.9 MB</span> <span class=" -Color -Color-Red">4.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:16</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.5/115.9 MB</span> <span class=" -Color -Color-Red">525.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:31</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">46.7/115.9 MB</span> <span class=" -Color -Color-Red">4.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:16</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.8/115.9 MB</span> <span class=" -Color -Color-Red">523.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:31</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">47.7/115.9 MB</span> <span class=" -Color -Color-Red">4.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:16</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.8/115.9 MB</span> <span class=" -Color -Color-Red">523.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:31</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">49.0/115.9 MB</span> <span class=" -Color -Color-Red">4.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:15</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.0/115.9 MB</span> <span class=" -Color -Color-Red">535.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:26</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">50.3/115.9 MB</span> <span class=" -Color -Color-Red">4.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:15</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.3/115.9 MB</span> <span class=" -Color -Color-Red">548.8 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:20</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">51.4/115.9 MB</span> <span class=" -Color -Color-Red">4.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:15</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.6/115.9 MB</span> <span class=" -Color -Color-Red">559.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:16</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">52.7/115.9 MB</span> <span class=" -Color -Color-Red">4.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:14</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.8/115.9 MB</span> <span class=" -Color -Color-Red">572.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:11</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">54.0/115.9 MB</span> <span class=" -Color -Color-Red">4.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:14</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">7.1/115.9 MB</span> <span class=" -Color -Color-Red">583.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:07</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">55.1/115.9 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:14</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">7.1/115.9 MB</span> <span class=" -Color -Color-Red">583.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:07</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">56.4/115.9 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:13</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">7.6/115.9 MB</span> <span class=" -Color -Color-Red">604.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">57.7/115.9 MB</span> <span class=" -Color -Color-Red">4.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:13</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">7.6/115.9 MB</span> <span class=" -Color -Color-Red">604.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:03:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">59.0/115.9 MB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:12</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">7.9/115.9 MB</span> <span class=" -Color -Color-Red">614.1 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:56</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">60.3/115.9 MB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:12</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">8.1/115.9 MB</span> <span class=" -Color -Color-Red">623.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:53</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">61.6/115.9 MB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:12</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">8.4/115.9 MB</span> <span class=" -Color -Color-Red">634.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:50</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">62.7/115.9 MB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:12</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">8.7/115.9 MB</span> <span class=" -Color -Color-Red">642.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:47</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">64.0/115.9 MB</span> <span class=" -Color -Color-Red">4.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:11</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">8.7/115.9 MB</span> <span class=" -Color -Color-Red">642.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:47</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">65.3/115.9 MB</span> <span class=" -Color -Color-Red">4.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:11</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">8.9/115.9 MB</span> <span class=" -Color -Color-Red">645.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:46</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">66.6/115.9 MB</span> <span class=" -Color -Color-Red">4.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:11</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">9.2/115.9 MB</span> <span class=" -Color -Color-Red">653.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:44</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">67.9/115.9 MB</span> <span class=" -Color -Color-Red">4.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:10</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">9.4/115.9 MB</span> <span class=" -Color -Color-Red">662.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:41</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">69.2/115.9 MB</span> <span class=" -Color -Color-Red">4.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:10</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">9.7/115.9 MB</span> <span class=" -Color -Color-Red">672.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:38</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">70.5/115.9 MB</span> <span class=" -Color -Color-Red">4.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:10</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">10.0/115.9 MB</span> <span class=" -Color -Color-Red">680.1 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:36</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">71.0/115.9 MB</span> <span class=" -Color -Color-Red">4.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:10</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">10.0/115.9 MB</span> <span class=" -Color -Color-Red">680.1 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:36</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">72.4/115.9 MB</span> <span class=" -Color -Color-Red">4.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:09</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">10.2/115.9 MB</span> <span class=" -Color -Color-Red">682.1 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:35</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">73.7/115.9 MB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:09</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">10.5/115.9 MB</span> <span class=" -Color -Color-Red">681.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:35</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">75.0/115.9 MB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:09</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">10.5/115.9 MB</span> <span class=" -Color -Color-Red">681.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:35</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">76.3/115.9 MB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:08</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">10.7/115.9 MB</span> <span class=" -Color -Color-Red">684.2 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:34</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">77.6/115.9 MB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:08</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.0/115.9 MB</span> <span class=" -Color -Color-Red">689.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:33</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">78.9/115.9 MB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:08</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.0/115.9 MB</span> <span class=" -Color -Color-Red">689.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:33</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">80.2/115.9 MB</span> <span class=" -Color -Color-Red">5.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:08</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.3/115.9 MB</span> <span class=" -Color -Color-Red">693.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:31</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━</span> <span class=" -Color -Color-Green">81.5/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:07</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.5/115.9 MB</span> <span class=" -Color -Color-Red">698.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:30</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━</span> <span class=" -Color -Color-Green">82.8/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:07</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.5/115.9 MB</span> <span class=" -Color -Color-Red">698.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:30</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━</span> <span class=" -Color -Color-Green">83.9/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:07</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.8/115.9 MB</span> <span class=" -Color -Color-Red">698.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:29</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━</span> <span class=" -Color -Color-Green">85.2/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:07</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.1/115.9 MB</span> <span class=" -Color -Color-Red">704.8 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:28</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━</span> <span class=" -Color -Color-Green">86.5/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:06</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.3/115.9 MB</span> <span class=" -Color -Color-Red">709.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:26</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━</span> <span class=" -Color -Color-Green">87.6/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:06</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.3/115.9 MB</span> <span class=" -Color -Color-Red">709.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:26</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━</span> <span class=" -Color -Color-Green">89.1/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:06</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.6/115.9 MB</span> <span class=" -Color -Color-Red">714.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:25</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━</span> <span class=" -Color -Color-Green">90.2/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.6/115.9 MB</span> <span class=" -Color -Color-Red">714.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:25</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━</span> <span class=" -Color -Color-Green">91.0/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.6/115.9 MB</span> <span class=" -Color -Color-Red">714.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:25</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━</span> <span class=" -Color -Color-Green">91.8/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.6/115.9 MB</span> <span class=" -Color -Color-Red">714.4 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:25</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━</span> <span class=" -Color -Color-Green">92.5/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.8/115.9 MB</span> <span class=" -Color -Color-Red">691.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:30</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━</span> <span class=" -Color -Color-Green">93.8/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.8/115.9 MB</span> <span class=" -Color -Color-Red">691.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:30</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━</span> <span class=" -Color -Color-Green">95.2/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:05</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">13.4/115.9 MB</span> <span class=" -Color -Color-Red">702.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:27</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━</span> <span class=" -Color -Color-Green">96.2/115.9 MB</span> <span class=" -Color -Color-Red">5.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:04</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">13.4/115.9 MB</span> <span class=" -Color -Color-Red">702.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:27</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━</span> <span class=" -Color -Color-Green">97.5/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:04</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">13.6/115.9 MB</span> <span class=" -Color -Color-Red">705.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:25</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━</span> <span class=" -Color -Color-Green">98.8/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:04</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">13.9/115.9 MB</span> <span class=" -Color -Color-Red">714.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:23</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━</span> <span class=" -Color -Color-Green">100.1/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:04</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">14.4/115.9 MB</span> <span class=" -Color -Color-Red">726.8 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:20</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━</span> <span class=" -Color -Color-Green">101.4/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">14.4/115.9 MB</span> <span class=" -Color -Color-Red">726.8 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:20</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━</span> <span class=" -Color -Color-Green">102.8/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">14.7/115.9 MB</span> <span class=" -Color -Color-Red">731.5 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:19</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━</span> <span class=" -Color -Color-Green">104.1/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">14.9/115.9 MB</span> <span class=" -Color -Color-Red">737.8 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:17</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━</span> <span class=" -Color -Color-Green">105.4/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:03</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">15.2/115.9 MB</span> <span class=" -Color -Color-Red">741.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:16</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━</span> <span class=" -Color -Color-Green">106.4/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">15.5/115.9 MB</span> <span class=" -Color -Color-Red">747.7 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:15</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━</span> <span class=" -Color -Color-Green">107.7/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">15.7/115.9 MB</span> <span class=" -Color -Color-Red">753.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:13</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━</span> <span class=" -Color -Color-Green">108.8/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">15.7/115.9 MB</span> <span class=" -Color -Color-Red">753.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:13</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━</span> <span class=" -Color -Color-Green">110.1/115.9 MB</span> <span class=" -Color -Color-Red">5.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">15.7/115.9 MB</span> <span class=" -Color -Color-Red">753.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:13</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━</span> <span class=" -Color -Color-Green">111.1/115.9 MB</span> <span class=" -Color -Color-Red">5.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">15.7/115.9 MB</span> <span class=" -Color -Color-Red">753.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:13</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━</span> <span class=" -Color -Color-Green">111.9/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.0/115.9 MB</span> <span class=" -Color -Color-Red">737.1 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:16</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━</span> <span class=" -Color -Color-Green">112.7/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.0/115.9 MB</span> <span class=" -Color -Color-Red">737.1 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:16</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺</span> <span class=" -Color -Color-Green">113.5/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.0/115.9 MB</span> <span class=" -Color -Color-Red">737.1 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:16</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺</span> <span class=" -Color -Color-Green">114.3/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.0/115.9 MB</span> <span class=" -Color -Color-Red">737.1 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:16</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">115.6/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.3/115.9 MB</span> <span class=" -Color -Color-Red">721.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:19</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">115.9/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.3/115.9 MB</span> <span class=" -Color -Color-Red">721.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:19</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">115.9/115.9 MB</span> <span class=" -Color -Color-Red">5.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.3/115.9 MB</span> <span class=" -Color -Color-Red">721.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:19</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading nvidia_nccl_cu12-2.28.7-py3-none-manylinux_2_18_x86_64.whl (296.8 MB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/296.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.3/115.9 MB</span> <span class=" -Color -Color-Red">721.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:19</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.3/296.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.3/115.9 MB</span> <span class=" -Color -Color-Red">721.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:19</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.6/296.8 MB</span> <span class=" -Color -Color-Red">5.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:51</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.3/115.9 MB</span> <span class=" -Color -Color-Red">721.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:19</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2.9/296.8 MB</span> <span class=" -Color -Color-Red">6.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:48</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.5/115.9 MB</span> <span class=" -Color -Color-Red">693.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:24</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.9/296.8 MB</span> <span class=" -Color -Color-Red">6.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:49</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.5/115.9 MB</span> <span class=" -Color -Color-Red">693.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:24</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.2/296.8 MB</span> <span class=" -Color -Color-Red">6.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:48</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.5/115.9 MB</span> <span class=" -Color -Color-Red">693.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:24</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">6.6/296.8 MB</span> <span class=" -Color -Color-Red">6.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:48</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.5/115.9 MB</span> <span class=" -Color -Color-Red">693.3 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:24</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">7.9/296.8 MB</span> <span class=" -Color -Color-Red">6.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:47</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.8/115.9 MB</span> <span class=" -Color -Color-Red">677.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:27</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">9.2/296.8 MB</span> <span class=" -Color -Color-Red">6.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:47</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.8/115.9 MB</span> <span class=" -Color -Color-Red">677.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:27</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">10.5/296.8 MB</span> <span class=" -Color -Color-Red">6.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:46</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.8/115.9 MB</span> <span class=" -Color -Color-Red">677.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:27</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.5/296.8 MB</span> <span class=" -Color -Color-Red">6.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:47</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.8/115.9 MB</span> <span class=" -Color -Color-Red">677.6 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:27</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.8/296.8 MB</span> <span class=" -Color -Color-Red">6.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:47</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">17.0/115.9 MB</span> <span class=" -Color -Color-Red">669.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:28</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">13.9/296.8 MB</span> <span class=" -Color -Color-Red">6.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:47</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">17.0/115.9 MB</span> <span class=" -Color -Color-Red">669.0 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:28</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">14.7/296.8 MB</span> <span class=" -Color -Color-Red">5.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:49</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.0/296.8 MB</span> <span class=" -Color -Color-Red">5.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:48</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">17.3/296.8 MB</span> <span class=" -Color -Color-Red">5.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:48</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">18.6/296.8 MB</span> <span class=" -Color -Color-Red">6.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:47</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">19.7/296.8 MB</span> <span class=" -Color -Color-Red">5.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:47</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">21.0/296.8 MB</span> <span class=" -Color -Color-Red">5.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:47</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
 
-   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">17.3/115.9 MB</span> <span class=" -Color -Color-Red">670.9 kB/s</span> eta <span class=" -Color -Color-Cyan">0:02:27</span>
+   ━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">21.8/296.8 MB</span> <span class=" -Color -Color-Red">6.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:47</span>
 ?25h<span class=" -Color -Color-Red">ERROR: Operation cancelled by user</span>
 
 </pre></div>
@@ -2339,7 +2313,7 @@ weighted avg       0.50      0.50      0.50       977
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Maciej Janowicz
 </p>
 
   </div>
