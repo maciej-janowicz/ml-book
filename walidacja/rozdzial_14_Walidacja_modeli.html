@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Walidacja modeli i zapobieganie przeuczeniu &#8212; My sample book</title>
+    <title>Walidacja modeli &#8212; My sample book</title>
   
   
   
@@ -182,34 +182,21 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_01_Wst%C4%99p_do_uczenia_maszynowego.html">Wstęp do uczenia maszynowego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_02_Rodzaje_uczenia_maszynowego.html">Rodzaje uczenia maszynowego</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_03_Matematyka_w_uczeniu_maszynowym.html">Matematyka w uczeniu maszynowym</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dane/rozdzial_05_Metryki_jako%C5%9Bci_w_uczeniu_maszynowym.html">Metryki jakości</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_04_Wst%C4%99pne_przetwarzanie_danych.html">Wstępne przetwarzanie danych</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../biblioteki/rozdzial_07_TensorFlow.html">Biblioteka TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Proste zadania klasyfikacji</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Algorytm K-średnich (K-means)</a></li>
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe: regresja liniowa, regresja logistyczna</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Uczenie nadzorowane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Uczenie_nienadzorowane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe i drzewiaste</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_13_Klasyfikacja_binarna_%C4%87wiczenia.html">Klasyfikacka binarna - ćwiczenia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_15_Sieci_CNN.html">Sieci konwolucyjne</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_16_Sieci_RNN.html">Rekurencyjne sieci neuronowe (RNN) to rodzaj sieci neuronowych zaprojektowanych do przetwarzania sekwencji danych, takich jak tekst, dane czasowe czy sygnały.</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_16_Sieci_RNN.html">Sieci rekurencyjne</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_17_Sieci_LSTM.html">Sieci LSTM</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_18_Sieci_GAN.html">Sieci GAN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_19_Architektury_sieci_neuronowych_1.html">Architektury sieci neuronowych, część 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_20_Transformery.html">Transformery</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_20_Transformery.html">Wstęp do transformerów</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ensembling/rozdzial_21_Ensembling.html">Metody zespołowe</a></li>
 </ul>
 
@@ -396,7 +383,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Walidacja modeli i zapobieganie przeuczeniu</h1>
+    <h1>Walidacja modeli</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -406,6 +393,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Walidacja modeli</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#walidacja-modeli-i-zapobieganie-przeuczeniu">Walidacja modeli i zapobieganie przeuczeniu</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wprowadzenie">Wprowadzenie</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-techniki-walidacji">Podstawowe techniki walidacji</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podzial-danych-na-treningowe-train-i-testowe-test">1. Podział danych na treningowe (train) i testowe (test)</a></li>
@@ -428,6 +417,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad-3-klasteryzacja-walidacja-i-wybor-liczby-klastrow">Przykład 3: Klasteryzacja - Walidacja i wybór liczby klastrów</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podsumowanie">Podsumowanie</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -438,13 +430,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="walidacja-modeli">
+<h1>Walidacja modeli<a class="headerlink" href="#walidacja-modeli" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">Latex</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="walidacja-modeli-i-zapobieganie-przeuczeniu">
 <h1>Walidacja modeli i zapobieganie przeuczeniu<a class="headerlink" href="#walidacja-modeli-i-zapobieganie-przeuczeniu" title="Link to this heading">#</a></h1>
 <section id="wprowadzenie">
@@ -635,103 +630,160 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kształt danych treningowych: (455, 30)
-Kształt danych testowych: (114, 30)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
 
-Rozkład klas w zbiorze treningowym: [170 285]
-Rozkład klas w zbiorze testowym: [42 72]
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
 
-============================================================
-WALIDACJA KRZYŻOWA (5-fold)
-============================================================
+Traceback (most recent call last):  File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main
+  File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/ipykernel_launcher.py&quot;, line 17, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/traitlets/config/application.py&quot;, line 1075, in launch_instance
+    app.start()
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/ipykernel/kernelapp.py&quot;, line 701, in start
+    self.io_loop.start()
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/tornado/platform/asyncio.py&quot;, line 205, in start
+    self.asyncio_loop.run_forever()
+  File &quot;/home/maciej/anaconda3/lib/python3.12/asyncio/base_events.py&quot;, line 639, in run_forever
+    self._run_once()
+  File &quot;/home/maciej/anaconda3/lib/python3.12/asyncio/base_events.py&quot;, line 1985, in _run_once
+    handle._run()
+  File &quot;/home/maciej/anaconda3/lib/python3.12/asyncio/events.py&quot;, line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/ipykernel/kernelbase.py&quot;, line 534, in dispatch_queue
+    await self.process_one()
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/ipykernel/kernelbase.py&quot;, line 523, in process_one
+    await dispatch(*args)
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/ipykernel/kernelbase.py&quot;, line 429, in dispatch_shell
+    await result
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/ipykernel/kernelbase.py&quot;, line 767, in execute_request
+    reply_content = await reply_content
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/ipykernel/ipkernel.py&quot;, line 429, in do_execute
+    res = shell.run_cell(
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/ipykernel/zmqshell.py&quot;, line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/IPython/core/interactiveshell.py&quot;, line 3075, in run_cell
+    result = self._run_cell(
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/IPython/core/interactiveshell.py&quot;, line 3130, in _run_cell
+    result = runner(coro)
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/IPython/core/async_helpers.py&quot;, line 128, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/IPython/core/interactiveshell.py&quot;, line 3334, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/IPython/core/interactiveshell.py&quot;, line 3517, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/IPython/core/interactiveshell.py&quot;, line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;/tmp/ipykernel_9512/3825973002.py&quot;, line 2, in &lt;module&gt;
+    import matplotlib.pyplot as plt
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/matplotlib/__init__.py&quot;, line 159, in &lt;module&gt;
+    from . import _api, _version, cbook, _docstring, rcsetup
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/matplotlib/rcsetup.py&quot;, line 28, in &lt;module&gt;
+    from matplotlib.colors import Colormap, is_color_like
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/matplotlib/colors.py&quot;, line 57, in &lt;module&gt;
+    from matplotlib import _api, _cm, cbook, scale
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/matplotlib/scale.py&quot;, line 22, in &lt;module&gt;
+    from matplotlib.ticker import (
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/matplotlib/ticker.py&quot;, line 144, in &lt;module&gt;
+    from matplotlib import transforms as mtransforms
+  File &quot;/home/maciej/anaconda3/lib/python3.12/site-packages/matplotlib/transforms.py&quot;, line 49, in &lt;module&gt;
+    from matplotlib._path import (
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/maciej/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">File ~/anaconda3/lib/python3.12/site-packages/numpy/core/_multiarray_umath.py:44,</span> in <span class="ni">__getattr__</span><span class="nt">(attr_name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="c1"># Also print the message (with traceback).  This is because old versions</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="c1"># of NumPy unfortunately set up the import to replace (and hide) the</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="c1"># error.  The traceback shouldn&#39;t be needed, but e.g. pytest plugins</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="c1"># seem to swallow it and we should be failing anyway...</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span> <span class="o">+</span> <span class="n">tb_msg</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">44</span>     <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="n">ret</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_multiarray_umath</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="k">if</span> <span class="n">ret</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/home/maciej/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<span class="ne">ImportError</span>: 
+<span class="n">A</span> <span class="n">module</span> <span class="n">that</span> <span class="n">was</span> <span class="n">compiled</span> <span class="n">using</span> <span class="n">NumPy</span> <span class="mf">1.</span><span class="n">x</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">run</span> <span class="ow">in</span>
+<span class="n">NumPy</span> <span class="mf">2.2.6</span> <span class="k">as</span> <span class="n">it</span> <span class="n">may</span> <span class="n">crash</span><span class="o">.</span> <span class="n">To</span> <span class="n">support</span> <span class="n">both</span> <span class="mf">1.</span><span class="n">x</span> <span class="ow">and</span> <span class="mf">2.</span><span class="n">x</span>
+<span class="n">versions</span> <span class="n">of</span> <span class="n">NumPy</span><span class="p">,</span> <span class="n">modules</span> <span class="n">must</span> <span class="n">be</span> <span class="n">compiled</span> <span class="k">with</span> <span class="n">NumPy</span> <span class="mf">2.0</span><span class="o">.</span>
+<span class="n">Some</span> <span class="n">module</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">rebuild</span> <span class="n">instead</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="k">with</span> <span class="s1">&#39;pybind11&gt;=2.12&#39;</span><span class="o">.</span>
 
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
+<span class="n">If</span> <span class="n">you</span> <span class="n">are</span> <span class="n">a</span> <span class="n">user</span> <span class="n">of</span> <span class="n">the</span> <span class="n">module</span><span class="p">,</span> <span class="n">the</span> <span class="n">easiest</span> <span class="n">solution</span> <span class="n">will</span> <span class="n">be</span> <span class="n">to</span>
+<span class="n">downgrade</span> <span class="n">to</span> <span class="s1">&#39;numpy&lt;2&#39;</span> <span class="ow">or</span> <span class="k">try</span> <span class="n">to</span> <span class="n">upgrade</span> <span class="n">the</span> <span class="n">affected</span> <span class="n">module</span><span class="o">.</span>
+<span class="n">We</span> <span class="n">expect</span> <span class="n">that</span> <span class="n">some</span> <span class="n">modules</span> <span class="n">will</span> <span class="n">need</span> <span class="n">time</span> <span class="n">to</span> <span class="n">support</span> <span class="n">NumPy</span> <span class="mf">2.</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/maciej/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="ne">ImportError</span>: numpy.core.multiarray failed to import
 
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/home/maciej/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/maciej/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">learning_curve</span><span class="p">,</span> <span class="n">train_test_split</span>
 
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Regresja logistyczna:
-  Wyniki dla każdego &#39;foldu&#39;: [0.97802198 0.93406593 0.92307692 0.93406593 0.94505495]
-  Średnia dokładność: 0.9429 (+/- 0.0378)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Las losowy (bez regularyzacji):
-  Wyniki dla każdego &#39;foldu&#39;: [0.96703297 0.98901099 0.92307692 0.93406593 0.95604396]
-  Średnia dokładność: 0.9538 (+/- 0.0469)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Las losowy (z regularyzacją):
-  Wyniki dla każdego &#39;foldu&#39;: [0.97802198 0.97802198 0.92307692 0.93406593 0.95604396]
-  Średnia dokładność: 0.9538 (+/- 0.0448)
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">159</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span> <span class="kn">from</span> <span class="nn">packaging.version</span> <span class="kn">import</span> <span class="n">parse</span> <span class="k">as</span> <span class="n">parse_version</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="c1"># cbook must import matplotlib only within function</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span> <span class="c1"># definitions, so it is safe to import from it here.</span>
+<span class="ne">--&gt; </span><span class="mi">159</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_version</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">_docstring</span><span class="p">,</span> <span class="n">rcsetup</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="kn">import</span> <span class="n">sanitize_sequence</span>
+<span class="g g-Whitespace">    </span><span class="mi">161</span> <span class="kn">from</span> <span class="nn">matplotlib._api</span> <span class="kn">import</span> <span class="n">MatplotlibDeprecationWarning</span>
 
-============================================================
-KRZYWE UCZENIA
-============================================================
-</pre></div>
-</div>
-<img alt="../_images/4d5dee0411a8b502c4029ef31be50aa9f86fc1dd02544fa1ddede5429974c262.png" src="../_images/4d5dee0411a8b502c4029ef31be50aa9f86fc1dd02544fa1ddede5429974c262.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>============================================================
-OCENA NA ZBIORZE TESTOWYM
-============================================================
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">rcsetup</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">28</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">matplotlib.backends</span> <span class="kn">import</span> <span class="n">BackendFilter</span><span class="p">,</span> <span class="n">backend_registry</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="kn">import</span> <span class="n">ls_mapper</span>
+<span class="ne">---&gt; </span><span class="mi">28</span> <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">Colormap</span><span class="p">,</span> <span class="n">is_color_like</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span> <span class="nn">matplotlib._fontconfig_pattern</span> <span class="kn">import</span> <span class="n">parse_fontconfig_pattern</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="kn">from</span> <span class="nn">matplotlib._enums</span> <span class="kn">import</span> <span class="n">JoinStyle</span><span class="p">,</span> <span class="n">CapStyle</span>
 
-Raport klasyfikacji:
-              precision    recall  f1-score   support
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">colors</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">57</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">57</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_cm</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">scale</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="kn">from</span> <span class="nn">._color_data</span> <span class="kn">import</span> <span class="n">BASE_COLORS</span><span class="p">,</span> <span class="n">TABLEAU_COLORS</span><span class="p">,</span> <span class="n">CSS4_COLORS</span><span class="p">,</span> <span class="n">XKCD_COLORS</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="k">class</span> <span class="nc">_ColorMapping</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
 
-   malignant       0.91      0.93      0.92        42
-      benign       0.96      0.94      0.95        72
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">scale</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">22</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_docstring</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">NullFormatter</span><span class="p">,</span> <span class="n">ScalarFormatter</span><span class="p">,</span> <span class="n">LogFormatterSciNotation</span><span class="p">,</span> <span class="n">LogitFormatter</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">NullLocator</span><span class="p">,</span> <span class="n">LogLocator</span><span class="p">,</span> <span class="n">AutoLocator</span><span class="p">,</span> <span class="n">AutoMinorLocator</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">SymmetricalLogLocator</span><span class="p">,</span> <span class="n">AsinhLocator</span><span class="p">,</span> <span class="n">LogitLocator</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">matplotlib.transforms</span> <span class="kn">import</span> <span class="n">Transform</span><span class="p">,</span> <span class="n">IdentityTransform</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="k">class</span> <span class="nc">ScaleBase</span><span class="p">:</span>
 
-    accuracy                           0.94       114
-   macro avg       0.93      0.94      0.93       114
-weighted avg       0.94      0.94      0.94       114
-</pre></div>
-</div>
-<img alt="../_images/cd82febafd5a49280ace08ea2260e70535d2473bd3a0d3628771b62f0782e350.png" src="../_images/cd82febafd5a49280ace08ea2260e70535d2473bd3a0d3628771b62f0782e350.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wnioski:
-- Model z regularyzacją zapobiega przeuczeniu poprzez ograniczenie złożoności
-- Walidacja krzyżowa daje bardziej wiarygodną ocenę niż pojedynczy podział
-- Krzywe uczenia pomagają zdiagnozować problemy z niedouczeniem/przeuczeniem
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">ticker</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">144</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span>
+<span class="ne">--&gt; </span><span class="mi">144</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">transforms</span> <span class="k">as</span> <span class="n">mtransforms</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;TickHelper&#39;</span><span class="p">,</span> <span class="s1">&#39;Formatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FixedFormatter&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>            <span class="s1">&#39;NullFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FuncFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FormatStrFormatter&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span>            <span class="s1">&#39;StrMethodFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;ScalarFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;LogFormatter&#39;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>            <span class="s1">&#39;MultipleLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;MaxNLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;AutoMinorLocator&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span>            <span class="s1">&#39;SymmetricalLogLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;AsinhLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;LogitLocator&#39;</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">transforms</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">49</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span>
+<span class="ne">---&gt; </span><span class="mi">49</span> <span class="kn">from</span> <span class="nn">matplotlib._path</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="n">affine_transform</span><span class="p">,</span> <span class="n">count_bboxes_overlapping_bbox</span><span class="p">,</span> <span class="n">update_path_extents</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="kn">from</span> <span class="nn">.path</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="ne">ImportError</span>: initialization failed
 </pre></div>
 </div>
 </div>
@@ -913,9 +965,8 @@ PORÓWNANIE MODELI - WALIDACJA KRZYŻOWA
 Linear Regression:
   RMSE: 0.7206 (+/- 0.1220)
   R^2: 0.6115 (+/- 0.0065)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ridge (alpha=0.1):
+
+Ridge (alpha=0.1):
   RMSE: 0.7206 (+/- 0.1220)
   R^2: 0.6115 (+/- 0.0065)
 
@@ -934,9 +985,8 @@ Lasso (alpha=0.1):
 Lasso (alpha=1.0):
   RMSE: 1.1563 (+/- 0.1721)
   R^2: -0.0003 (+/- 0.0004)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ElasticNet (alpha=0.1):
+
+ElasticNet (alpha=0.1):
   RMSE: 0.7922 (+/- 0.1142)
   R^2: 0.5305 (+/- 0.0036)
 
@@ -945,7 +995,7 @@ KRZYWE WALIDACYJNE - OPTYMALIZACJA PARAMETRU REGULARYZACJI
 ======================================================================
 </pre></div>
 </div>
-<img alt="../_images/b8c6779f00456309e696663da3a50fd762870c60d069e7ca97c6a6e0fdd6bacb.png" src="../_images/b8c6779f00456309e696663da3a50fd762870c60d069e7ca97c6a6e0fdd6bacb.png" />
+<img alt="../_images/8858bbb2e34d2ef8af572a4c471481488c3750e4d229015850c1fed26a0d24aa.png" src="../_images/8858bbb2e34d2ef8af572a4c471481488c3750e4d229015850c1fed26a0d24aa.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
 OCENA NAJLEPSZEGO MODELU NA ZBIORZE TESTOWYM
 ======================================================================
@@ -956,8 +1006,8 @@ Błąd MAE: 0.5332
 R^2: 0.5758
 </pre></div>
 </div>
-<img alt="../_images/dc4ac2dfca3dd4b559be70bfbf76e66bfe1b8c9acb719aef3f830488d5a55a48.png" src="../_images/dc4ac2dfca3dd4b559be70bfbf76e66bfe1b8c9acb719aef3f830488d5a55a48.png" />
-<img alt="../_images/66dc2dcfc4e4a1d567742d6bedbd38e4f29efe61b1b7ff43551c4f1f04c5e3ad.png" src="../_images/66dc2dcfc4e4a1d567742d6bedbd38e4f29efe61b1b7ff43551c4f1f04c5e3ad.png" />
+<img alt="../_images/6c0961c69459696593da5d748dfdfbc4641858def681b1d3418b4eed6bf19524.png" src="../_images/6c0961c69459696593da5d748dfdfbc4641858def681b1d3418b4eed6bf19524.png" />
+<img alt="../_images/85f0f569ea708f869f921a6f444f01aa87bd68955517218534701ce32e7f9ddd.png" src="../_images/85f0f569ea708f869f921a6f444f01aa87bd68955517218534701ce32e7f9ddd.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wnioski:
 - Regularyzacja Ridge zapobiega przeuczeniu poprzez penalizację dużych wag
 </pre></div>
@@ -1163,22 +1213,18 @@ K=4: Inercja=28.79, Silhouette=0.7979, Davies-Bouldin=0.2819
 K=5: Inercja=25.61, Silhouette=0.6785, Davies-Bouldin=0.5927
 K=6: Inercja=22.89, Silhouette=0.5444, Davies-Bouldin=0.8524
 K=7: Inercja=20.27, Silhouette=0.4484, Davies-Bouldin=0.9848
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K=8: Inercja=17.89, Silhouette=0.3503, Davies-Bouldin=1.1111
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K=9: Inercja=16.31, Silhouette=0.3494, Davies-Bouldin=1.0334
+K=8: Inercja=17.89, Silhouette=0.3503, Davies-Bouldin=1.1111
+K=9: Inercja=16.31, Silhouette=0.3494, Davies-Bouldin=1.0334
 K=10: Inercja=14.83, Silhouette=0.3511, Davies-Bouldin=0.9932
 </pre></div>
 </div>
-<img alt="../_images/77e9ca1e78f086bbda592f7052eb9b651188bbc748622a6e63a683e725f03489.png" src="../_images/77e9ca1e78f086bbda592f7052eb9b651188bbc748622a6e63a683e725f03489.png" />
+<img alt="../_images/f33e10869910f8d5c1b649c7f3a389e34bb765811a2161138624797345e9a8ed.png" src="../_images/f33e10869910f8d5c1b649c7f3a389e34bb765811a2161138624797345e9a8ed.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
 STABILNOŚĆ KLASTERYZACJI
 ======================================================================
 
 Stabilność dla K=4:
-Współczynniki &#39;silhouette scores&#39; dla 5 &#39;foldów&#39;: [0.8140409452121117, 0.7920307734736051, 0.801057931478973, 0.7906450590589202, 0.7971469607700484]
+Współczynniki &#39;silhouette scores&#39; dla 5 &#39;foldów&#39;: [np.float64(0.8140409452121117), np.float64(0.7920307734736051), np.float64(0.801057931478973), np.float64(0.7906450590589202), np.float64(0.7971469607700484)]
 Średni współczynnik &#39;Silhouette score&#39;: 0.7990 (+/- 0.0084)
 
 ======================================================================
@@ -1197,7 +1243,7 @@ Rozkład próbek w klastrach:
   Klaster 3: 125 próbek (25.0%)
 </pre></div>
 </div>
-<img alt="../_images/f5497d277f892309aa2fd7d9126c8d5f878c673f9d1b5f9bf01cc81412d6848a.png" src="../_images/f5497d277f892309aa2fd7d9126c8d5f878c673f9d1b5f9bf01cc81412d6848a.png" />
+<img alt="../_images/67919748f37a848d9836159b007ff5788a42c583bdd157ee40484d14c914b9bf.png" src="../_images/67919748f37a848d9836159b007ff5788a42c583bdd157ee40484d14c914b9bf.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wnioski:
 - W klasteryzacji nie ma &#39;prawdziwych&#39; etykiet, więc potrzebujemy metryk wewnętrznych
 - &#39;Metoda łokcia&#39;, współczynnik &#39;silhouette score&#39; i inne metryki pomagają wybrać optymalną liczbę klastrów
@@ -1270,6 +1316,8 @@ Rozkład próbek w klastrach:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Walidacja modeli</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#walidacja-modeli-i-zapobieganie-przeuczeniu">Walidacja modeli i zapobieganie przeuczeniu</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wprowadzenie">Wprowadzenie</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-techniki-walidacji">Podstawowe techniki walidacji</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#podzial-danych-na-treningowe-train-i-testowe-test">1. Podział danych na treningowe (train) i testowe (test)</a></li>
@@ -1292,6 +1340,9 @@ Rozkład próbek w klastrach:
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklad-3-klasteryzacja-walidacja-i-wybor-liczby-klastrow">Przykład 3: Klasteryzacja - Walidacja i wybór liczby klastrów</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podsumowanie">Podsumowanie</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

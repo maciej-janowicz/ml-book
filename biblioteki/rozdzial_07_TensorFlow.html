@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'biblioteki/rozdzial_07_TensorFlow';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Proste zadania klasyfikacji" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../dane/rozdzial_06_In%C5%BCynieria_cech.html" />
+    <link rel="next" title="Uczenie nadzorowane" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html" />
+    <link rel="prev" title="Wstępne przetwarzanie danych" href="../podstawy/rozdzial_04_Wst%C4%99pne_przetwarzanie_danych.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,34 +180,21 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_01_Wst%C4%99p_do_uczenia_maszynowego.html">Wstęp do uczenia maszynowego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_02_Rodzaje_uczenia_maszynowego.html">Rodzaje uczenia maszynowego</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_03_Matematyka_w_uczeniu_maszynowym.html">Matematyka w uczeniu maszynowym</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dane/rozdzial_05_Metryki_jako%C5%9Bci_w_uczeniu_maszynowym.html">Metryki jakości</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_04_Wst%C4%99pne_przetwarzanie_danych.html">Wstępne przetwarzanie danych</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Biblioteka TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Proste zadania klasyfikacji</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Algorytm K-średnich (K-means)</a></li>
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe: regresja liniowa, regresja logistyczna</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Uczenie nadzorowane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Uczenie_nienadzorowane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe i drzewiaste</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_13_Klasyfikacja_binarna_%C4%87wiczenia.html">Klasyfikacka binarna - ćwiczenia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_15_Sieci_CNN.html">Sieci konwolucyjne</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_16_Sieci_RNN.html">Rekurencyjne sieci neuronowe (RNN) to rodzaj sieci neuronowych zaprojektowanych do przetwarzania sekwencji danych, takich jak tekst, dane czasowe czy sygnały.</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_16_Sieci_RNN.html">Sieci rekurencyjne</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_17_Sieci_LSTM.html">Sieci LSTM</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_18_Sieci_GAN.html">Sieci GAN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_19_Architektury_sieci_neuronowych_1.html">Architektury sieci neuronowych, część 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_20_Transformery.html">Transformery</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_20_Transformery.html">Wstęp do transformerów</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ensembling/rozdzial_21_Ensembling.html">Metody zespołowe</a></li>
 </ul>
 
@@ -404,39 +391,42 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensoflow">TensoFlow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keras">Keras</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-wykorzystujace-standardowe-pliki-z-danymi">Przykłady (wykorzystujące standardowe pliki z danymi)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porownanie-z-wynikami-algorytmow-ridge-i-lasso">Porównanie z wynikami algorytmów Ridge i Lasso</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-ridge">Algorytm Ridge</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-czynnosci">Opis czynności</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uwagi">Uwagi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">TensorFlow i Keras</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keras">Keras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-wykorzystujace-standardowe-pliki-z-danymi">Przykłady (wykorzystujące standardowe pliki z danymi)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#porownanie-z-wynikami-algorytmow-ridge-i-lasso">Porównanie z wynikami algorytmów Ridge i Lasso</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-ridge">Algorytm Ridge</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-czynnosci">Opis czynności</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uwagi">Uwagi</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-cyfr-pisanych-odrecznie">Klasyfikacja cyfr pisanych odręcznie</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Opis czynności</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-cyfr-pisanych-odrecznie">Klasyfikacja cyfr pisanych odręcznie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Opis czynności</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Uwagi:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-zwiazanych-z-odzieza">Klasyfikacja obrazów związanych z odzieżą</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Opis czynności</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Uwagi:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-zwiazanych-z-odzieza">Klasyfikacja obrazów związanych z odzieżą</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Opis czynności</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-10">Klasyfikacja obrazów CIFAR-10</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-10">Opis zbioru danych CIFAR-10</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasy-w-zbiorze-danych">Klasy w zbiorze danych</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Opis czynności</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Uwagi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-10">Klasyfikacja obrazów CIFAR-10</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-10">Opis zbioru danych CIFAR-10</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#klasy-w-zbiorze-danych">Klasy w zbiorze danych</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Opis czynności</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Uwagi</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-100">Klasyfikacja obrazów CIFAR-100</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-100">Opis zbioru danych CIFAR-100</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Klasy w zbiorze danych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-100">Klasyfikacja obrazów CIFAR-100</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-100">Opis zbioru danych CIFAR-100</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Klasy w zbiorze danych</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Opis czynności</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Opis czynności</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -448,10 +438,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="tensorflow-i-keras">
+  <section class="tex2jax_ignore mathjax_ignore" id="tensorflow-i-keras">
 <h1>TensorFlow i Keras<a class="headerlink" href="#tensorflow-i-keras" title="Link to this heading">#</a></h1>
-<section id="tensoflow">
-<h2>TensoFlow<a class="headerlink" href="#tensoflow" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h2>TensorFlow i Keras<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="tensorflow">
+<h3>TensorFlow<a class="headerlink" href="#tensorflow" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>TensorFlow to otwarta biblioteka do uczenia maszynowego i obliczeń numerycznych.</p></li>
 <li><p>Została stworzona przez Google i jest stosowana zarówno w biznesie, jak i w badaniach naukowych.</p></li>
@@ -463,7 +455,7 @@ document.write(`
 </ul>
 </section>
 <section id="keras">
-<h2>Keras<a class="headerlink" href="#keras" title="Link to this heading">#</a></h2>
+<h3>Keras<a class="headerlink" href="#keras" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Keras to wysokopoziomowe API do budowania i trenowania modeli uczenia głębokiego.</p></li>
 <li><p>Został stworzony przez François Cholleta i jest obecnie integralną częścią TensorFlow.</p></li>
@@ -475,7 +467,7 @@ document.write(`
 </ul>
 </section>
 <section id="przyklady-wykorzystujace-standardowe-pliki-z-danymi">
-<h2>Przykłady (wykorzystujące standardowe pliki z danymi)<a class="headerlink" href="#przyklady-wykorzystujace-standardowe-pliki-z-danymi" title="Link to this heading">#</a></h2>
+<h3>Przykłady (wykorzystujące standardowe pliki z danymi)<a class="headerlink" href="#przyklady-wykorzystujace-standardowe-pliki-z-danymi" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Zagadnienie regresji - przewidywanie cen nieruchomości (dane z pliku “Boston Housing”)</p></li>
 </ol>
@@ -536,9 +528,9 @@ document.write(`
 </div>
 </section>
 <section id="porownanie-z-wynikami-algorytmow-ridge-i-lasso">
-<h2>Porównanie z wynikami algorytmów Ridge i Lasso<a class="headerlink" href="#porownanie-z-wynikami-algorytmow-ridge-i-lasso" title="Link to this heading">#</a></h2>
+<h3>Porównanie z wynikami algorytmów Ridge i Lasso<a class="headerlink" href="#porownanie-z-wynikami-algorytmow-ridge-i-lasso" title="Link to this heading">#</a></h3>
 <section id="algorytm-ridge">
-<h3>Algorytm Ridge<a class="headerlink" href="#algorytm-ridge" title="Link to this heading">#</a></h3>
+<h4>Algorytm Ridge<a class="headerlink" href="#algorytm-ridge" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
@@ -606,7 +598,7 @@ Mean Absolute Error (Lasso): 3.473770443541664
 </div>
 </section>
 <section id="opis-czynnosci">
-<h3>Opis czynności<a class="headerlink" href="#opis-czynnosci" title="Link to this heading">#</a></h3>
+<h4>Opis czynności<a class="headerlink" href="#opis-czynnosci" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Wczytujemy zbiór danych Boston Housing i dzielimy go na zbiór treningowy i testowy.</p></li>
 <li><p>Normalizujemy dane za pomocą StandardScaler.</p></li>
@@ -616,7 +608,7 @@ Mean Absolute Error (Lasso): 3.473770443541664
 </ol>
 </section>
 <section id="uwagi">
-<h3>Uwagi<a class="headerlink" href="#uwagi" title="Link to this heading">#</a></h3>
+<h4>Uwagi<a class="headerlink" href="#uwagi" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Warstwa gęsta (ang. “Dense”) to warstwa, w której każdy neuron jest połączony z każdym neuronem w poprzedniej warstwie. Inaczej mówiąc, jest to warstwa pełnego połączenia (ang. “fully connected layer”).<br />
 Każdy neuron w warstwie gęstej otrzymuje dane wyjściowe z każdego neuronu w poprzedniej warstwie i przekazuje swoje dane wyjściowe do każdego neuronu w następnej warstwie.</p></li>
@@ -723,9 +715,9 @@ Na przykład, jeśli x_train ma kształt (1000, 20), oznacza to, że dane wejśc
 </section>
 </section>
 <section id="klasyfikacja-cyfr-pisanych-odrecznie">
-<h2>Klasyfikacja cyfr pisanych odręcznie<a class="headerlink" href="#klasyfikacja-cyfr-pisanych-odrecznie" title="Link to this heading">#</a></h2>
-<section id="id1">
-<h3>Opis czynności<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3>Klasyfikacja cyfr pisanych odręcznie<a class="headerlink" href="#klasyfikacja-cyfr-pisanych-odrecznie" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h4>Opis czynności<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Wczytujemy zbiór danych MNIST i normalizujemy obrazy.
 Konwertujemy etykiety do postaci kategorialnej za pomocą to_categorical.</p></li>
@@ -808,8 +800,8 @@ Test Accuracy: 0.9768000245094299
 </div>
 </section>
 </section>
-<section id="id2">
-<h2>Uwagi:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>Uwagi:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Linia: “Flatten(input_shape=(28, 28))” ma następujący sens:</p></li>
 </ol>
@@ -838,7 +830,7 @@ Test Accuracy: 0.9768000245094299
 </ul>
 </section>
 <section id="klasyfikacja-obrazow-zwiazanych-z-odzieza">
-<h2>Klasyfikacja obrazów związanych z odzieżą<a class="headerlink" href="#klasyfikacja-obrazow-zwiazanych-z-odzieza" title="Link to this heading">#</a></h2>
+<h3>Klasyfikacja obrazów związanych z odzieżą<a class="headerlink" href="#klasyfikacja-obrazow-zwiazanych-z-odzieza" title="Link to this heading">#</a></h3>
 <p>Fashion MNIST to zbiór danych zawierający 70,000 obrazów odzieży i obuwia w skali szarości, podzielonych na 10 różnych klas. Każdy obraz ma rozmiar 28x28 pikseli. Zbiór danych jest podzielony na zbiór treningowy (60,000 obrazów) i zbiór testowy (10,000 obrazów).</p>
 <p>Zawiera on 10 klas, każda reprezentująca jakiś rodzaj ubrania:
 T-shirty, spodnie, swetry, dresy, płaszcze, sandały, bluzki, adidasy, torby, buty “za kostkę”.</p>
@@ -879,8 +871,8 @@ Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-dataset
 <img alt="../_images/a270f65928415bd84945a0778a3997933978cfee99273f1a39374ac1e1024b53.png" src="../_images/a270f65928415bd84945a0778a3997933978cfee99273f1a39374ac1e1024b53.png" />
 </div>
 </div>
-<section id="id3">
-<h3>Opis czynności<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h4>Opis czynności<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Wczytujemy zbiór danych Fashion MNIST i normalizujemy obrazy.
 Konwertujemy etykiety do postaci kategorialnej za pomocą to_categorical.</p></li>
@@ -964,9 +956,9 @@ Test Accuracy: 0.8810999989509583
 </section>
 </section>
 <section id="klasyfikacja-obrazow-cifar-10">
-<h2>Klasyfikacja obrazów CIFAR-10<a class="headerlink" href="#klasyfikacja-obrazow-cifar-10" title="Link to this heading">#</a></h2>
+<h3>Klasyfikacja obrazów CIFAR-10<a class="headerlink" href="#klasyfikacja-obrazow-cifar-10" title="Link to this heading">#</a></h3>
 <section id="opis-zbioru-danych-cifar-10">
-<h3>Opis zbioru danych CIFAR-10<a class="headerlink" href="#opis-zbioru-danych-cifar-10" title="Link to this heading">#</a></h3>
+<h4>Opis zbioru danych CIFAR-10<a class="headerlink" href="#opis-zbioru-danych-cifar-10" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>CIFAR-10 to zbiór danych zawierający 60,000 obrazów kolorowych o rozmiarze 32x32 pikseli, podzielonych na 10 różnych klas.</p></li>
 <li><p>Każdy obraz jest reprezentowany przez trzy kanały kolorów (czerwony, zielony, niebieski).</p></li>
@@ -974,7 +966,7 @@ Test Accuracy: 0.8810999989509583
 </ul>
 </section>
 <section id="klasy-w-zbiorze-danych">
-<h3>Klasy w zbiorze danych<a class="headerlink" href="#klasy-w-zbiorze-danych" title="Link to this heading">#</a></h3>
+<h4>Klasy w zbiorze danych<a class="headerlink" href="#klasy-w-zbiorze-danych" title="Link to this heading">#</a></h4>
 <p>Zbiór danych CIFAR-10 zawiera 10 klas, każda reprezentująca rodzaj obiektu:
 samolot, samochód, ptak, kot, jeleń, pies, żaba, koń, statek, ciężarówka.</p>
 <div class="cell docutils container">
@@ -1011,8 +1003,8 @@ samolot, samochód, ptak, kot, jeleń, pies, żaba, koń, statek, ciężarówka.
 </div>
 </div>
 </section>
-<section id="id4">
-<h3>Opis czynności<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h4>Opis czynności<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Wczytujemy zbiór danych CIFAR-10 i normalizujemy obrazy.
 Konwertujemy etykiety do postaci kategorialnej za pomocą to_categorical.</p></li>
@@ -1099,8 +1091,8 @@ Test Accuracy: 0.6949999928474426
 </div>
 </div>
 </section>
-<section id="id5">
-<h3>Uwagi<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h4>Uwagi<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
 <ol class="arabic simple">
 <li><p>Conv2D:</p>
 <ul class="simple">
@@ -1146,22 +1138,22 @@ Test Accuracy: 0.6949999928474426
 </section>
 </section>
 <section id="klasyfikacja-obrazow-cifar-100">
-<h2>Klasyfikacja obrazów CIFAR-100<a class="headerlink" href="#klasyfikacja-obrazow-cifar-100" title="Link to this heading">#</a></h2>
+<h3>Klasyfikacja obrazów CIFAR-100<a class="headerlink" href="#klasyfikacja-obrazow-cifar-100" title="Link to this heading">#</a></h3>
 <section id="opis-zbioru-danych-cifar-100">
-<h3>Opis zbioru danych CIFAR-100<a class="headerlink" href="#opis-zbioru-danych-cifar-100" title="Link to this heading">#</a></h3>
+<h4>Opis zbioru danych CIFAR-100<a class="headerlink" href="#opis-zbioru-danych-cifar-100" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p>CIFAR-100 to zbiór danych zawierający 60,000 obrazów kolorowych o rozmiarze 32x32 pikseli, podzielonych na 100 różnych klas.</p></li>
 <li><p>Każdy obraz jest reprezentowany przez trzy kanały kolorów (czerwony, zielony, niebieski).</p></li>
 <li><p>Zbiór danych jest podzielony na zbiór treningowy (50,000 obrazów) i zbiór testowy (10,000 obrazów).</p></li>
 </ul>
-<section id="id6">
-<h4>Klasy w zbiorze danych<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<section id="id7">
+<h5>Klasy w zbiorze danych<a class="headerlink" href="#id7" title="Link to this heading">#</a></h5>
 <p>Zbiór danych CIFAR-100 zawiera 100 klas, każda reprezentująca rodzaj obiektu. Klasy są podzielone na 20 nadkategorii, każda zawierająca 5 klas. Na przykład kategoria “duże drapieżniki” zawiera obrazu niedźwiedzia, lamparta, lwa, tygrysa i wilka.</p>
 </section>
 </section>
 </section>
-<section id="id7">
-<h2>Opis czynności<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h3>Opis czynności<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <ol class="arabic">
 <li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Wczytujemy zbiór danych CIFAR-100 i normalizujemy obrazy.
 </pre></div>
@@ -1264,6 +1256,7 @@ Test Accuracy: 0.34880000352859497
 </div>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1296,12 +1289,12 @@ Test Accuracy: 0.34880000352859497
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../dane/rozdzial_06_In%C5%BCynieria_cech.html"
+       href="../podstawy/rozdzial_04_Wst%C4%99pne_przetwarzanie_danych.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Wstępne przetwarzanie danych</p>
       </div>
     </a>
     <a class="right-next"
@@ -1309,7 +1302,7 @@ Test Accuracy: 0.34880000352859497
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Proste zadania klasyfikacji</p>
+        <p class="prev-next-title">Uczenie nadzorowane</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1329,39 +1322,42 @@ Test Accuracy: 0.34880000352859497
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensoflow">TensoFlow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keras">Keras</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-wykorzystujace-standardowe-pliki-z-danymi">Przykłady (wykorzystujące standardowe pliki z danymi)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porownanie-z-wynikami-algorytmow-ridge-i-lasso">Porównanie z wynikami algorytmów Ridge i Lasso</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-ridge">Algorytm Ridge</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-czynnosci">Opis czynności</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uwagi">Uwagi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">TensorFlow i Keras</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keras">Keras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-wykorzystujace-standardowe-pliki-z-danymi">Przykłady (wykorzystujące standardowe pliki z danymi)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#porownanie-z-wynikami-algorytmow-ridge-i-lasso">Porównanie z wynikami algorytmów Ridge i Lasso</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-ridge">Algorytm Ridge</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-czynnosci">Opis czynności</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uwagi">Uwagi</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-cyfr-pisanych-odrecznie">Klasyfikacja cyfr pisanych odręcznie</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Opis czynności</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-cyfr-pisanych-odrecznie">Klasyfikacja cyfr pisanych odręcznie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Opis czynności</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Uwagi:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-zwiazanych-z-odzieza">Klasyfikacja obrazów związanych z odzieżą</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Opis czynności</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Uwagi:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-zwiazanych-z-odzieza">Klasyfikacja obrazów związanych z odzieżą</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Opis czynności</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-10">Klasyfikacja obrazów CIFAR-10</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-10">Opis zbioru danych CIFAR-10</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasy-w-zbiorze-danych">Klasy w zbiorze danych</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Opis czynności</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Uwagi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-10">Klasyfikacja obrazów CIFAR-10</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-10">Opis zbioru danych CIFAR-10</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#klasy-w-zbiorze-danych">Klasy w zbiorze danych</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Opis czynności</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Uwagi</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-100">Klasyfikacja obrazów CIFAR-100</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-100">Opis zbioru danych CIFAR-100</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Klasy w zbiorze danych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-100">Klasyfikacja obrazów CIFAR-100</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-100">Opis zbioru danych CIFAR-100</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Klasy w zbiorze danych</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Opis czynności</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Opis czynności</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

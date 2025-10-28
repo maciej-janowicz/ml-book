@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Łączenie modeli i metody zespołowe w uczeniu maszynowym &#8212; My sample book</title>
+    <title>Metody zespołowe &#8212; My sample book</title>
   
   
   
@@ -180,34 +180,21 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_01_Wst%C4%99p_do_uczenia_maszynowego.html">Wstęp do uczenia maszynowego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_02_Rodzaje_uczenia_maszynowego.html">Rodzaje uczenia maszynowego</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_03_Matematyka_w_uczeniu_maszynowym.html">Matematyka w uczeniu maszynowym</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dane/rozdzial_05_Metryki_jako%C5%9Bci_w_uczeniu_maszynowym.html">Metryki jakości</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_04_Wst%C4%99pne_przetwarzanie_danych.html">Wstępne przetwarzanie danych</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../biblioteki/rozdzial_07_TensorFlow.html">Biblioteka TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Proste zadania klasyfikacji</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Algorytm K-średnich (K-means)</a></li>
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe: regresja liniowa, regresja logistyczna</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Uczenie nadzorowane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Uczenie_nienadzorowane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe i drzewiaste</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_13_Klasyfikacja_binarna_%C4%87wiczenia.html">Klasyfikacka binarna - ćwiczenia</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_15_Sieci_CNN.html">Sieci konwolucyjne</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_16_Sieci_RNN.html">Rekurencyjne sieci neuronowe (RNN) to rodzaj sieci neuronowych zaprojektowanych do przetwarzania sekwencji danych, takich jak tekst, dane czasowe czy sygnały.</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_16_Sieci_RNN.html">Sieci rekurencyjne</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_17_Sieci_LSTM.html">Sieci LSTM</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_18_Sieci_GAN.html">Sieci GAN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_19_Architektury_sieci_neuronowych_1.html">Architektury sieci neuronowych, część 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_20_Transformery.html">Transformery</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_20_Transformery.html">Wstęp do transformerów</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Metody zespołowe</a></li>
 </ul>
 
@@ -394,7 +381,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Łączenie modeli i metody zespołowe w uczeniu maszynowym</h1>
+    <h1>Metody zespołowe</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -404,6 +391,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-modeli-i-metody-zespolowe-w-uczeniu-maszynowym">Łączenie modeli i metody zespołowe w uczeniu maszynowym</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wprowadzenie">Wprowadzenie</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dlaczego-ensembling-ma-szanse-dzialac">Dlaczego ensembling ma szanse działać?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glowne-typy-modeli-zespolowych">Główne typy modeli zespołowych</a></li>
@@ -423,8 +411,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="laczenie-modeli-i-metody-zespolowe-w-uczeniu-maszynowym">
-<h1>Łączenie modeli i metody zespołowe w uczeniu maszynowym<a class="headerlink" href="#laczenie-modeli-i-metody-zespolowe-w-uczeniu-maszynowym" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="metody-zespolowe">
+<h1>Metody zespołowe<a class="headerlink" href="#metody-zespolowe" title="Link to this heading">#</a></h1>
+<section id="laczenie-modeli-i-metody-zespolowe-w-uczeniu-maszynowym">
+<h2>Łączenie modeli i metody zespołowe w uczeniu maszynowym<a class="headerlink" href="#laczenie-modeli-i-metody-zespolowe-w-uczeniu-maszynowym" title="Link to this heading">#</a></h2>
+</section>
 <section id="wprowadzenie">
 <h2>Wprowadzenie<a class="headerlink" href="#wprowadzenie" title="Link to this heading">#</a></h2>
 <p>Metody zespołowe (ang. “ensembling”) to technika łączenia wielu modeli uczenia maszynowego w celu uzyskania lepszych wyników niż pojedynczy model. Idea opiera się na zasadzie “mądrość tłumu” - zespół przeciętnych modeli może przewyższyć jeden doskonały model.</p>
@@ -1718,6 +1709,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laczenie-modeli-i-metody-zespolowe-w-uczeniu-maszynowym">Łączenie modeli i metody zespołowe w uczeniu maszynowym</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wprowadzenie">Wprowadzenie</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dlaczego-ensembling-ma-szanse-dzialac">Dlaczego ensembling ma szanse działać?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glowne-typy-modeli-zespolowych">Główne typy modeli zespołowych</a></li>

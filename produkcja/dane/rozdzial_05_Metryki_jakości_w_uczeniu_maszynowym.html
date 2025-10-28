@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Metryki jakości w uczeniu maszynowym &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'produkcja/dane/rozdzial_05_Metryki_jakości_w_uczeniu_maszynowym';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../podstawy/rozdzial_01_Wst%C4%99p_do_uczenia_maszynowego.html">Wstęp do uczenia maszynowego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../podstawy/rozdzial_02_Rodzaje_uczenia_maszynowego.html">Rodzaje uczenia maszynowego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../podstawy/rozdzial_03_Matematyka_w_uczeniu_maszynowym.html">Matematyka w uczeniu maszynowym</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../podstawy/rozdzial_04_Wst%C4%99pne_przetwarzanie_danych.html">Wstępne przetwarzanie danych</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../biblioteki/rozdzial_07_TensorFlow.html">Biblioteka TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Uczenie nadzorowane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Uczenie_nienadzorowane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe i drzewiaste</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../klasyczne_ml/rozdzial_13_Klasyfikacja_binarna_%C4%87wiczenia.html">Klasyfikacka binarna - ćwiczenia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../g%C5%82%C4%99bokie_ml/rozdzial_15_Sieci_CNN.html">Sieci konwolucyjne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../g%C5%82%C4%99bokie_ml/rozdzial_16_Sieci_RNN.html">Sieci rekurencyjne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../g%C5%82%C4%99bokie_ml/rozdzial_17_Sieci_LSTM.html">Sieci LSTM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../g%C5%82%C4%99bokie_ml/rozdzial_18_Sieci_GAN.html">Sieci GAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../g%C5%82%C4%99bokie_ml/rozdzial_19_Architektury_sieci_neuronowych_1.html">Architektury sieci neuronowych, część 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../g%C5%82%C4%99bokie_ml/rozdzial_20_Transformery.html">Wstęp do transformerów</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ensembling/rozdzial_21_Ensembling.html">Metody zespołowe</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fprodukcja/dane/rozdzial_05_Metryki_jakości_w_uczeniu_maszynowym.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/produkcja/dane/rozdzial_05_Metryki_jakości_w_uczeniu_maszynowym.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Metryki jakości w uczeniu maszynowym</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#najwazniejsze-wskazniki-uzywane-do-oceny-modeli-regresyjnych">Najważniejsze wskaźniki używane do oceny modeli regresyjnych.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="metryki-jakosci-w-uczeniu-maszynowym">
+<h1>Metryki jakości w uczeniu maszynowym<a class="headerlink" href="#metryki-jakosci-w-uczeniu-maszynowym" title="Link to this heading">#</a></h1>
+<p>###Proces uczenia maszynowego i oceny modeli.</p>
+<ol class="arabic simple">
+<li><p>Czynności wykonywane podczas uczenia algorytmu</p></li>
+</ol>
+<p>A. Wstępne przetwarzanie danych:</p>
+<ul class="simple">
+<li><p>Czyszczenie danych: usuwanie lub uzupełnianie brakujących wartości, eliminacja błędnych rekordów i odstających obserwacji</p></li>
+<li><p>Normalizacja i standaryzacja: sprowadzenie zmiennych do wspólnej skali (np. 0-1 lub rozkładu normalnego)</p></li>
+<li><p>Kodowanie zmiennych kategorialnych: zamiana na wartości numeryczne (one-hot encoding, label encoding)</p></li>
+<li><p>Redukcja wymiarowości: wybór najważniejszych cech lub tworzenie nowych (analiza głównych składowych, selekcja cech)</p></li>
+<li><p>Podział na zbiór treningowy, walidacyjny i testowy (najczęściej w proporcjach 60-20-20 lub 70-15-15)</p></li>
+</ul>
+<p>B. Wybór modelu:</p>
+<ul class="simple">
+<li><p>Analiza charakteru problemu (klasyfikacja, regresja, klastrowanie)</p></li>
+<li><p>Ocena dostępnych danych (liczba próbek, wymiarowość, typ zmiennych)</p></li>
+<li><p>Wybór odpowiedniego algorytmu (np. drzewa decyzyjne, sieci neuronowe, SVM)</p></li>
+<li><p>Określenie hiperparametrów modelu</p></li>
+<li><p>Rozważenie ograniczeń obliczeniowych i czasowych</p></li>
+</ul>
+<p>C. Uczenie:</p>
+<ul class="simple">
+<li><p>Trenowanie modelu na zbiorze treningowym</p></li>
+<li><p>Walidacja krzyżowa (“cross-validation”)</p></li>
+<li><p>Dostrajanie hiperparametrów (“grid search”, “random search”)</p></li>
+<li><p>Monitorowanie procesu uczenia (śledzenie krzywych uczenia)</p></li>
+<li><p>Zapobieganie przeuczeniu (regularyzacja, wczesne zatrzymanie)</p></li>
+</ul>
+<p>D. Ocena modelu:</p>
+<ul class="simple">
+<li><p>Testowanie na niezależnym zbiorze testowym</p></li>
+<li><p>Obliczanie metryk wydajności</p></li>
+<li><p>Analiza błędów i przypadków problematycznych</p></li>
+<li><p>Interpretacja wyników</p></li>
+<li><p>Iteracyjne udoskonalanie modelu</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Wskaźniki oceny modeli</p></li>
+</ol>
+<p>A. Dokładność (Accuracy):</p>
+<ul class="simple">
+<li><p>Stosunek poprawnych przewidywań do wszystkich przypadków</p></li>
+<li><p>Wzór: (TP + TN) / (TP + TN + FP + FN)</p></li>
+<li><p>Zalety: łatwa interpretacja</p></li>
+<li><p>Wady: może być myląca przy niezbalansowanych klasach</p></li>
+<li><p>Zastosowanie: problemy z dobrze zbalansowanymi klasami</p></li>
+</ul>
+<p>B. Precyzja (Precision):</p>
+<ul class="simple">
+<li><p>Stosunek prawdziwie pozytywnych do wszystkich przewidzianych jako pozytywne</p></li>
+<li><p>Wzór: TP / (TP + FP)</p></li>
+<li><p>Pokazuje, jaki procent pozytywnych przewidywań był faktycznie trafny</p></li>
+<li><p>Ważna gdy fałszywie pozytywne wyniki są kosztowne</p></li>
+<li><p>Zastosowanie: systemy rekomendacji, diagnostyka medyczna</p></li>
+</ul>
+<p>C. Czułość (Recall):</p>
+<ul class="simple">
+<li><p>Stosunek prawdziwie pozytywnych do wszystkich faktycznie pozytywnych przypadków</p></li>
+<li><p>Wzór: TP / (TP + FN)</p></li>
+<li><p>Pokazuje, jaki procent faktycznie pozytywnych przypadków został wykryty</p></li>
+<li><p>Istotna gdy nie możemy przeoczyć pozytywnych przypadków</p></li>
+<li><p>Zastosowanie: wykrywanie oszustw, diagnostyka chorób</p></li>
+</ul>
+<p>D. Wskaźnik F1:</p>
+<ul class="simple">
+<li><p>Średnia harmoniczna precyzji i czułości</p></li>
+<li><p>Wzór:
+F1 = 2 * (Precyzja * Czułość) / (Precyzja + Czułość)</p></li>
+<li><p>Ukazuje zarówno precyzję, jak i czułość</p></li>
+<li><p>Dobry wskaźnik dla niezbalansowanych zbiorów danych</p></li>
+<li><p>Pozwala na ocenę modelu za pomocą jednego wskaźnika</p></li>
+</ul>
+<p>E. Pole pod krzywą ROC (AUC-ROC):</p>
+<ul class="simple">
+<li><p>Krzywa ROC pokazuje relację między TPR (czułość) a FPR</p></li>
+<li><p>TPR = TP / (TP + FN)</p></li>
+<li><p>FPR = FP / (TN + FP)</p></li>
+<li><p>Mierzy całościową zdolność modelu do rozróżniania klas</p></li>
+<li><p>Wartości od 0 do 1 (im bliżej 1, tym lepiej)</p></li>
+<li><p>Niewrażliwe na niezbalansowanie klas</p></li>
+<li><p>Pozwala porównywać różne modele</p></li>
+</ul>
+<p>F. Krzywa “lift”</p>
+<p>Krzywa “lift” jest to narzędzie wizualizacji, które pomaga ocenić skuteczność modelu predykcyjnego w porównaniu do losowego wyboru. Pokazuje ona, o ile lepiej model radzi sobie z identyfikacją pozytywnych przypadków w porównaniu do przypadkowego, losowego wyboru.</p>
+<p>F1. Definicja</p>
+<ul class="simple">
+<li><p>“Lift” to stosunek między odsetkiem pozytywnych wyników w wybranej grupie a odsetkiem pozytywnych wyników w całej populacji.</p></li>
+</ul>
+<p>F2. Interpretacja</p>
+<ul class="simple">
+<li><p>“Lift” = 1 oznacza, że model nie jest lepszy od losowego wyboru.</p></li>
+<li><p>“Lift” &gt; 1 wskazuje, że model działa lepiej niż losowy wybór.</p></li>
+<li><p>Im wyższa wartość “liftu”, tym lepszy model</p></li>
+</ul>
+<p>F3. Zastosowanie</p>
+<ul class="simple">
+<li><p>Marketing: optymalizacja kampanii reklamowych</p></li>
+<li><p>Sprzedaż: identyfikacja potencjalnych klientów</p></li>
+<li><p>Analiza ryzyka: wykrywanie fraudów</p></li>
+<li><p>Medycyna: przewidywanie ryzyka chorób</p></li>
+</ul>
+<p>F4. Przykład.
+Załóżmy, że bank chce zidentyfikować klientów, którzy najprawdopodobniej skorzystają z nowej oferty kredytowej. Średni współczynnik odpowiedzi w populacji wynosi 5%. Jeśli model wskazuje grupę, w której współczynnik odpowiedzi wynosi 15%, “lift” wynosi 3 (15%/5% = 3), co oznacza, że model jest trzy razy skuteczniejszy od losowego wyboru.</p>
+<p>Proces uczenia maszynowego jest iteracyjny - często trzeba wracać
+do wcześniejszych etapów i wprowadzać modyfikacje na podstawie uzyskanych wyników.
+Istotne jest zrozumienie tzw. “kontekstu biznesowego” (jak zawsze)</p>
+<section id="najwazniejsze-wskazniki-uzywane-do-oceny-modeli-regresyjnych">
+<h2>Najważniejsze wskaźniki używane do oceny modeli regresyjnych.<a class="headerlink" href="#najwazniejsze-wskazniki-uzywane-do-oceny-modeli-regresyjnych" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>“Mean Squared Error (MSE)” - błąd średni kwadratowy:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Obliczany jako średnia z kwadratów różnic między wartościami przewidzianymi a rzeczywistymi</p></li>
+<li><p>Mocno penalizuje duże błędy poprzez podnoszenie do kwadratu</p></li>
+<li><p>Zawsze przyjmuje wartości nieujemne; im bliżej 0, tym lepiej</p></li>
+<li><p>Ma tę samą jednostkę co dane wejściowe podniesione do kwadratu</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>“Root Mean Squared Error (RMSE)” - (pierwiastek) błędu średnio kwadratowego</p></li>
+</ol>
+<ul class="simple">
+<li><p>Z definicji jest to pierwiastek z MSE</p></li>
+<li><p>Popularniejszy od MSE, bo wyrażony w tych samych jednostkach co zmienna zależna</p></li>
+<li><p>Łatwiejszy w interpretacji niż MSE</p></li>
+<li><p>Również zawsze nieujemny; im bliżej 0, tym lepiej</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>“Mean Absolute Error (MAE)” - średni błąd bezwzględny:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Obliczany jest jako średnia z wartości bezwzględnych różnic między przewidywaniami a wartościami rzeczywistymi</p></li>
+<li><p>Mniej czuły na wartości odstające niż MSE/RMSE</p></li>
+<li><p>Łatwy w interpretacji - pokazuje średnią wielkość błędu w jednostkach zmiennej zależnej</p></li>
+<li><p>Zawsze nieujemny; im bliżej 0, tym lepiej</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Współczynnik R-kwadrat (<span class="math notranslate nohighlight">\(R^2\)</span>) -</p></li>
+</ol>
+<ul class="simple">
+<li><p>Pokazuje, jaki procent zmienności zmiennej zależnej jest wyjaśniany przez model</p></li>
+<li><p>Przyjmuje wartości od 0 do 1 (lub 0-100%)</p></li>
+<li><p>Im bliżej 1, tym lepiej model opisuje dane</p></li>
+<li><p>Może być mylący przy porównywaniu modeli o różnej złożoności</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>Skorygowany współczynnik R-kwadrat (“Adjusted R²”) -</p></li>
+</ol>
+<ul class="simple">
+<li><p>Modyfikacja R² uwzględniająca liczbę zmiennych w modelu</p></li>
+<li><p>Penalizuje dodawanie zbędnych zmiennych</p></li>
+<li><p>Lepszy niż zwykły R² przy porównywaniu modeli o różnej liczbie zmiennych</p></li>
+<li><p>Może przyjmować wartości ujemne</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>MAPE (Mean Absolute Percentage Error) - średni bezwzględny błąd procentowy.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Wyrażony w procentach</p></li>
+<li><p>Przydatny gdy chcemy porównać błędy dla różnych skal danych</p></li>
+<li><p>Problematyczny gdy wartości rzeczywiste są bliskie zeru</p></li>
+<li><p>Łatwy w komunikacji dla nietechnicznych odbiorców</p></li>
+</ul>
+<ol class="arabic simple" start="7">
+<li><p>“Explained Variance Score:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Mierzy, w jakim stopniu model uwzględnia wariancję w danych</p></li>
+<li><p>Wartość 1.0 oznacza idealne dopasowanie</p></li>
+<li><p>Może być ujemny dla bardzo złych modeli</p></li>
+<li><p>Pomocny w wykrywaniu błędów systematycznych</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./produkcja/dane"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#najwazniejsze-wskazniki-uzywane-do-oceny-modeli-regresyjnych">Najważniejsze wskaźniki używane do oceny modeli regresyjnych.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

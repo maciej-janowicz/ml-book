@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Splotowe sieci neuronowe (ang. “Convolutional Neural Networks”, CNN) &#8212; My sample book</title>
+    <title>Sieci CNN &#8212; My sample book</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'głębokie_ml/rozdzial_15_Sieci_CNN';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Rekurencyjne sieci neuronowe (RNN) to rodzaj sieci neuronowych zaprojektowanych do przetwarzania sekwencji danych, takich jak tekst, dane czasowe czy sygnały." href="rozdzial_16_Sieci_RNN.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../klasyczne_ml/rozdzial_13_Klasyfikacja_binarna_%C4%87wiczenia.html" />
+    <link rel="next" title="Sieci RNN" href="rozdzial_16_Sieci_RNN.html" />
+    <link rel="prev" title="Klasyfikacja binarna - ćwiczenia" href="../klasyczne_ml/rozdzial_13_Klasyfikacja_binarna_%C4%87wiczenia.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,34 +180,21 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_01_Wst%C4%99p_do_uczenia_maszynowego.html">Wstęp do uczenia maszynowego</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_02_Rodzaje_uczenia_maszynowego.html">Rodzaje uczenia maszynowego</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_03_Matematyka_w_uczeniu_maszynowym.html">Matematyka w uczeniu maszynowym</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dane/rozdzial_05_Metryki_jako%C5%9Bci_w_uczeniu_maszynowym.html">Metryki jakości</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_04_Wst%C4%99pne_przetwarzanie_danych.html">Wstępne przetwarzanie danych</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../biblioteki/rozdzial_07_TensorFlow.html">Biblioteka TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Proste zadania klasyfikacji</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Algorytm K-średnich (K-means)</a></li>
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe: regresja liniowa, regresja logistyczna</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Uczenie nadzorowane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Uczenie_nienadzorowane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe i drzewiaste</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_13_Klasyfikacja_binarna_%C4%87wiczenia.html">Klasyfikacka binarna - ćwiczenia</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Sieci konwolucyjne</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial_16_Sieci_RNN.html">Rekurencyjne sieci neuronowe (RNN) to rodzaj sieci neuronowych zaprojektowanych do przetwarzania sekwencji danych, takich jak tekst, dane czasowe czy sygnały.</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="rozdzial_16_Sieci_RNN.html">Sieci rekurencyjne</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial_17_Sieci_LSTM.html">Sieci LSTM</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="rozdzial_18_Sieci_GAN.html">Sieci GAN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rozdzial_19_Architektury_sieci_neuronowych_1.html">Architektury sieci neuronowych, część 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rozdzial_20_Transformery.html">Transformery</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="rozdzial_20_Transformery.html">Wstęp do transformerów</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ensembling/rozdzial_21_Ensembling.html">Metody zespołowe</a></li>
 </ul>
 
@@ -381,7 +368,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -392,11 +381,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Splotowe sieci neuronowe (ang. “Convolutional Neural Networks”, CNN)</h1>
+    <h1>Sieci CNN</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splotowe-sieci-neuronowe-ang-convolutional-neural-networks-cnn">Splotowe sieci neuronowe (ang. “Convolutional Neural Networks”, CNN)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -406,8 +403,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="splotowe-sieci-neuronowe-ang-convolutional-neural-networks-cnn">
-<h1>Splotowe sieci neuronowe (ang. “Convolutional Neural Networks”, CNN)<a class="headerlink" href="#splotowe-sieci-neuronowe-ang-convolutional-neural-networks-cnn" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="sieci-cnn">
+<h1>Sieci CNN<a class="headerlink" href="#sieci-cnn" title="Link to this heading">#</a></h1>
+<section id="splotowe-sieci-neuronowe-ang-convolutional-neural-networks-cnn">
+<h2>Splotowe sieci neuronowe (ang. “Convolutional Neural Networks”, CNN)<a class="headerlink" href="#splotowe-sieci-neuronowe-ang-convolutional-neural-networks-cnn" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Twórcy: Yann LeCun, Bernhard Boser, John S. Denker, Donnie Henderson, Richard E. Howard, Wayne Hubbard, Lawrence D. Jackel</p></li>
 <li><p>Pierwsza publikacja: “Backpropagation Applied to Handwritten Zip Code Recognition”, Neural Computation (1989),
@@ -487,6 +486,7 @@ CNN są stosowane w dziedzinach takich, jak rozpoznawanie obrazów, detekcja obi
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -524,7 +524,7 @@ CNN są stosowane w dziedzinach takich, jak rozpoznawanie obrazów, detekcja obi
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Klasyfikacja binarna - ćwiczenia</p>
       </div>
     </a>
     <a class="right-next"
@@ -532,7 +532,7 @@ CNN są stosowane w dziedzinach takich, jak rozpoznawanie obrazów, detekcja obi
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Rekurencyjne sieci neuronowe (RNN) to rodzaj sieci neuronowych zaprojektowanych do przetwarzania sekwencji danych, takich jak tekst, dane czasowe czy sygnały.</p>
+        <p class="prev-next-title">Sieci RNN</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -542,6 +542,21 @@ CNN są stosowane w dziedzinach takich, jak rozpoznawanie obrazów, detekcja obi
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splotowe-sieci-neuronowe-ang-convolutional-neural-networks-cnn">Splotowe sieci neuronowe (ang. “Convolutional Neural Networks”, CNN)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
