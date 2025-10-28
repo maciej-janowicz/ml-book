@@ -1,0 +1,1671 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Wstęp do uczenia maszynowego &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'podstawy/rozdzial_01_Wstęp_do_uczenia_maszynowego';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rozdzial_02_Rodzaje_uczenia_maszynowego.html">Rodzaje uczenia maszynowego</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="rozdzial_03_Matematyka_w_uczeniu_maszynowym.html">Matematyka w uczeniu maszynowym</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dane/rozdzial_05_Metryki_jako%C5%9Bci_w_uczeniu_maszynowym.html">Metryki jakości</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../biblioteki/rozdzial_07_TensorFlow.html">Biblioteka TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Proste zadania klasyfikacji</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Algorytm K-średnich (K-means)</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe: regresja liniowa, regresja logistyczna</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_15_Sieci_CNN.html">Sieci konwolucyjne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_16_Sieci_RNN.html">Rekurencyjne sieci neuronowe (RNN) to rodzaj sieci neuronowych zaprojektowanych do przetwarzania sekwencji danych, takich jak tekst, dane czasowe czy sygnały.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_17_Sieci_LSTM.html">Sieci LSTM</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_19_Architektury_sieci_neuronowych_1.html">Architektury sieci neuronowych, część 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_20_Transformery.html">Transformery</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensembling/rozdzial_21_Ensembling.html">Metody zespołowe</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpodstawy/rozdzial_01_Wstęp_do_uczenia_maszynowego.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/podstawy/rozdzial_01_Wstęp_do_uczenia_maszynowego.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Wstęp do uczenia maszynowego</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wstęp do uczenia maszynowego</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#czym-jest-uczenie-maszynowe">Czym jest uczenie maszynowe?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#po-co-w-ogole-uczenie-maszynowe">Po co w ogóle uczenie maszynowe?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rodzaje-uczenia-maszynowego">Rodzaje uczenia maszynowego</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-nadzorowane-supervised-learning">1. Uczenie nadzorowane (Supervised Learning)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-nienadzorowane-unsupervised-learning">2. Uczenie nienadzorowane (Unsupervised Learning)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-ze-wzmocnieniem-reinforcement-learning">3. Uczenie ze wzmocnieniem (Reinforcement Learning)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-pojecia">Podstawowe pojęcia</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cechy-features">Cechy (Features)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#etykiety-labels">Etykiety (Labels)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zbior-treningowy-i-testowy">Zbiór treningowy i testowy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moga-sie-pojawic-klopoty"><em>Mogą się pojawić kłopoty</em>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przeuczenie-overfitting">Przeuczenie (Overfitting)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#niedouczenie-underfitting">Niedouczenie (Underfitting)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typowy-proces-uczenia-maszynowego">Typowy proces uczenia maszynowego</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#popularne-biblioteki-w-pythonie">Popularne biblioteki w Pythonie</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwszy-praktyczny-przyklad-klasyfikacja-binarna">Pierwszy praktyczny przykład: Klasyfikacja binarna</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-1-import-bibliotek">Krok 1: Import bibliotek</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-2-generowanie-danych-syntetycznych">Krok 2: Generowanie danych syntetycznych</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-3-konwersja-do-dataframes-pandas">Krok 3: Konwersja do DataFrames pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-4-analiza-eksploracyjna-danych-eda">Krok 4: Analiza eksploracyjna danych (EDA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-5-podzial-danych-na-zbior-treningowy-i-testowy">Krok 5: Podział danych na zbiór treningowy i testowy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-6-standaryzacja-danych">Krok 6: Standaryzacja danych</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-7-budowa-i-trenowanie-modelu-random-forest">Krok 7: Budowa i trenowanie modelu Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-8-predykcja-i-ewaluacja-modelu">Krok 8: Predykcja i ewaluacja modelu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macierz-pomylek-confusion-matrix">Macierz pomyłek (Confusion Matrix)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raport-klasyfikacji">Raport klasyfikacji</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#krzywa-roc-receiver-operating-characteristic">Krzywa ROC (Receiver Operating Characteristic)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-9-waznosc-cech">Krok 9: Ważność cech</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podsumowanie">Podsumowanie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nastepne-kroki">Następne kroki</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przydatne-zasoby">Przydatne zasoby:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="wstep-do-uczenia-maszynowego">
+<h1>Wstęp do uczenia maszynowego<a class="headerlink" href="#wstep-do-uczenia-maszynowego" title="Link to this heading">#</a></h1>
+<section id="czym-jest-uczenie-maszynowe">
+<h2>Czym jest uczenie maszynowe?<a class="headerlink" href="#czym-jest-uczenie-maszynowe" title="Link to this heading">#</a></h2>
+<p><strong>Uczenie maszynowe</strong> (ang. <em>Machine Learning</em>, ML) to dziedzina sztucznej inteligencji, która umożliwia komputerom uczenie się na podstawie danych bez konieczności jawnego programowania każdej reguły. Zamiast tego algorytmy uczenia maszynowego automatycznie wykrywają wzorce i zależności w danych, wykorzystując je później do podejmowania decyzji lub przewidywań.</p>
+<section id="po-co-w-ogole-uczenie-maszynowe">
+<h3>Po co w ogóle uczenie maszynowe?<a class="headerlink" href="#po-co-w-ogole-uczenie-maszynowe" title="Link to this heading">#</a></h3>
+<p>Czasy mamy takie, że świat dookoła generuje ogromne ilości danych. Tradycyjne metody programowania nie są w stanie efektywnie poradzić sobie z analizą tak dużych i złożonych zbiorów danych. Uczenie maszynowe pozwala na:</p>
+<ul class="simple">
+<li><p><strong>Automatyzację</strong> podejmowania decyzji</p></li>
+<li><p><strong>Wykrywanie wzorców</strong> niewidocznych dla człowieka</p></li>
+<li><p><strong>Przewidywanie</strong> przyszłych zdarzeń na podstawie danych historycznych</p></li>
+<li><p><strong>Personalizację</strong> usług (np. rekomendacje w serwisach streamingowych)</p></li>
+<li><p><strong>Rozpoznawanie obrazów i mowy</strong></p></li>
+</ul>
+</section>
+</section>
+<section id="rodzaje-uczenia-maszynowego">
+<h2>Rodzaje uczenia maszynowego<a class="headerlink" href="#rodzaje-uczenia-maszynowego" title="Link to this heading">#</a></h2>
+<p>Uczenie maszynowe dzieli się na kilka głównych kategorii:</p>
+<section id="uczenie-nadzorowane-supervised-learning">
+<h3>1. Uczenie nadzorowane (Supervised Learning)<a class="headerlink" href="#uczenie-nadzorowane-supervised-learning" title="Link to this heading">#</a></h3>
+<p>W uczeniu nadzorowanym algorytm uczy się na podstawie <strong>danych z etykietami</strong> (czyli znamy poprawne odpowiedzi). Model analizuje przykłady treningowe i uczy się przewidywać wyniki dla nowych, nieznanych danych.</p>
+<p><strong>Przykłady zastosowań:</strong></p>
+<ul class="simple">
+<li><p><strong>Klasyfikacja</strong>: Rozpoznawanie, czy email to spam czy nie (dwie klasy)</p></li>
+<li><p><strong>Regresja</strong>: Przewidywanie ceny mieszkania na podstawie jego cech</p></li>
+<li><p>Diagnozowanie chorób na podstawie objawów</p></li>
+<li><p>Rozpoznawanie pisma ręcznego</p></li>
+</ul>
+</section>
+<section id="uczenie-nienadzorowane-unsupervised-learning">
+<h3>2. Uczenie nienadzorowane (Unsupervised Learning)<a class="headerlink" href="#uczenie-nienadzorowane-unsupervised-learning" title="Link to this heading">#</a></h3>
+<p>W tym przypadku algorytm pracuje z <strong>danymi bez etykiet</strong>. Jego zadaniem jest znalezienie ukrytych struktur i wzorców w danych.</p>
+<p><strong>Przykłady zastosowań:</strong></p>
+<ul class="simple">
+<li><p><strong>Grupowanie (clustering)</strong>: Segmentacja klientów na podstawie ich zachowań</p></li>
+<li><p><strong>Redukcja wymiarowości</strong>: Uproszczenie złożonych danych przy zachowaniu najważniejszych informacji</p></li>
+<li><p>Wykrywanie anomalii (np. oszustw)</p></li>
+</ul>
+</section>
+<section id="uczenie-ze-wzmocnieniem-reinforcement-learning">
+<h3>3. Uczenie ze wzmocnieniem (Reinforcement Learning)<a class="headerlink" href="#uczenie-ze-wzmocnieniem-reinforcement-learning" title="Link to this heading">#</a></h3>
+<p>Agent uczy się podejmować decyzje poprzez <strong>interakcję ze środowiskiem</strong> i otrzymywanie nagród lub kar za swoje działania.</p>
+<p><strong>Przykłady zastosowań:</strong></p>
+<ul class="simple">
+<li><p>Gry komputerowe (np. AlphaGo)</p></li>
+<li><p>Autonomiczne pojazdy</p></li>
+<li><p>Roboty</p></li>
+</ul>
+</section>
+</section>
+<section id="podstawowe-pojecia">
+<h2>Podstawowe pojęcia<a class="headerlink" href="#podstawowe-pojecia" title="Link to this heading">#</a></h2>
+<section id="cechy-features">
+<h3>Cechy (Features)<a class="headerlink" href="#cechy-features" title="Link to this heading">#</a></h3>
+<p>To zmienne wejściowe, które opisują nasze dane. Na przykład dla przewidywania ceny domu cechami mogą być: powierzchnia, liczba pokoi, lokalizacja itp.</p>
+</section>
+<section id="etykiety-labels">
+<h3>Etykiety (Labels)<a class="headerlink" href="#etykiety-labels" title="Link to this heading">#</a></h3>
+<p>To wartości, które chcemy przewidzieć. W przypadku klasyfikacji to klasy (np. spam/nie-spam), a w regresji to wartości numeryczne (np. cena).</p>
+</section>
+<section id="zbior-treningowy-i-testowy">
+<h3>Zbiór treningowy i testowy<a class="headerlink" href="#zbior-treningowy-i-testowy" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Zbiór treningowy</strong>: Dane, na których model się uczy</p></li>
+<li><p><strong>Zbiór testowy</strong>: Dane, na których sprawdzamy, jak dobrze model radzi sobie z nowymi, nieznanymi przykładami</p></li>
+</ul>
+</section>
+<section id="moga-sie-pojawic-klopoty">
+<h3><em>Mogą się pojawić kłopoty</em>:<a class="headerlink" href="#moga-sie-pojawic-klopoty" title="Link to this heading">#</a></h3>
+</section>
+<section id="przeuczenie-overfitting">
+<h3>Przeuczenie (Overfitting)<a class="headerlink" href="#przeuczenie-overfitting" title="Link to this heading">#</a></h3>
+<p>Sytuacja, gdy model zbyt dobrze “zapamiętał” dane treningowe i nie potrafi niczego uogólnić na nowe dane.</p>
+</section>
+<section id="niedouczenie-underfitting">
+<h3>Niedouczenie (Underfitting)<a class="headerlink" href="#niedouczenie-underfitting" title="Link to this heading">#</a></h3>
+<p>Sytuacja, gdy model jest zbyt prosty i nie potrafi uchwycić wzorców w danych.</p>
+</section>
+</section>
+<section id="typowy-proces-uczenia-maszynowego">
+<h2>Typowy proces uczenia maszynowego<a class="headerlink" href="#typowy-proces-uczenia-maszynowego" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Zbieranie danych</strong>: Pozyskanie odpowiedniego zbioru danych</p></li>
+<li><p><strong>Przygotowanie danych</strong>: Czyszczenie, normalizacja, obsługa brakujących wartości</p></li>
+<li><p><strong>Wybór modelu</strong>: Decyzja o tym, jaki algorytm zastosować</p></li>
+<li><p><strong>Trenowanie modelu</strong>: Uczenie modelu na danych treningowych</p></li>
+<li><p><strong>Ewaluacja</strong>: Sprawdzenie jakości modelu na danych testowych</p></li>
+<li><p><strong>Optymalizacja</strong>: Dostrajanie parametrów dla lepszych wyników</p></li>
+<li><p><strong>Wdrożenie</strong>: Użycie modelu w praktyce</p></li>
+</ol>
+</section>
+<section id="popularne-biblioteki-w-pythonie">
+<h2>Popularne biblioteki w Pythonie<a class="headerlink" href="#popularne-biblioteki-w-pythonie" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>scikit-learn</strong>: Wszechstronna biblioteka z algorytmami ML</p></li>
+<li><p><strong>pandas</strong>: Manipulacja i analiza danych</p></li>
+<li><p><strong>numpy</strong>: Operacje na tablicach i macierzach</p></li>
+<li><p><strong>matplotlib/seaborn</strong>: Wizualizacja danych</p></li>
+<li><p><strong>TensorFlow/PyTorch</strong>: Głębokie uczenie (deep learning)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="pierwszy-praktyczny-przyklad-klasyfikacja-binarna">
+<h1>Pierwszy praktyczny przykład: Klasyfikacja binarna<a class="headerlink" href="#pierwszy-praktyczny-przyklad-klasyfikacja-binarna" title="Link to this heading">#</a></h1>
+<p>Przejdźmy teraz do konkretnego przykładu. Stworzymy prosty model klasyfikacji binarnej wykorzystując algorytm <strong>Random Forest</strong> (Las losowy).</p>
+<section id="krok-1-import-bibliotek">
+<h2>Krok 1: Import bibliotek<a class="headerlink" href="#krok-1-import-bibliotek" title="Link to this heading">#</a></h2>
+<p>Zaczniemy od zaimportowania niezbędnych bibliotek do pracy z danymi i budowy modelu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biblioteki do obliczeń numerycznych i analizy danych</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Biblioteki do wizualizacji</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Ustawienia dla lepszej czytelności wykresów</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-v0_8-darkgrid&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="s2">&quot;husl&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ignorowanie ostrzeżeń (żeby output był &quot;czystszy&quot;)</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># Biblioteki scikit-learn do uczenia maszynowego</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">accuracy_score</span><span class="p">,</span>
+    <span class="n">confusion_matrix</span><span class="p">,</span>
+    <span class="n">classification_report</span><span class="p">,</span>
+    <span class="n">roc_auc_score</span><span class="p">,</span>
+    <span class="n">roc_curve</span>
+<span class="p">)</span>
+
+<span class="c1"># Ustawienie &quot;ziarna&quot; dla generatora liczb losowych w celu uzyskania powtarzalności wyników</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Biblioteki zaimportowane pomyślnie! ✓&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Biblioteki zaimportowane pomyślnie! ✓
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="krok-2-generowanie-danych-syntetycznych">
+<h2>Krok 2: Generowanie danych syntetycznych<a class="headerlink" href="#krok-2-generowanie-danych-syntetycznych" title="Link to this heading">#</a></h2>
+<p>Do celów demonstracyjnych stworzymy sztuczny zbiór danych do klasyfikacji. W praktyce używalibyśmy rzeczywistych danych, ale syntetyczne dane pozwalają nam kontrolować wszystkie parametry problemu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generowanie syntetycznego zbioru danych do klasyfikacji binarnej</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>      <span class="c1"># liczba próbek</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>        <span class="c1"># liczba cech</span>
+    <span class="n">n_informative</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>      <span class="c1"># liczba cech informatywnych (wpływających na wynik)</span>
+    <span class="n">n_redundant</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>        <span class="c1"># liczba cech nadmiarowych</span>
+    <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>          <span class="c1"># liczba klas (klasyfikacja binarna)</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>      <span class="c1"># dla powtarzalności</span>
+    <span class="n">flip_y</span><span class="o">=</span><span class="mf">0.1</span>            <span class="c1"># 10% szumu w etykietach (symulacja błędów)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Utworzono zbiór danych:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - Liczba próbek: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - Liczba cech: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - Rozkład klas: Klasa 0: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">, Klasa 1: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - Typ danych X: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - Typ danych y: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Utworzono zbiór danych:
+  - Liczba próbek: 10000
+  - Liczba cech: 10
+  - Rozkład klas: Klasa 0: 5028, Klasa 1: 4972
+  - Typ danych X: &lt;class &#39;numpy.ndarray&#39;&gt;
+  - Typ danych y: &lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="krok-3-konwersja-do-dataframes-pandas">
+<h2>Krok 3: Konwersja do DataFrames pandas<a class="headerlink" href="#krok-3-konwersja-do-dataframes-pandas" title="Link to this heading">#</a></h2>
+<p>Pandas to biblioteka ułatwiająca pracę z danymi tabelarycznymi. Przekonwertujemy nasze dane (typów, zdefiniowanych w bibliotece) numpy do formatu DataFrame (“ramki danych”), co ułatwi ich analizę i wizualizację.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Konwersja do pandas DataFrame z odpowiednimi nazwami kolumn</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;cecha_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+<span class="n">X_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">y_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;klasa&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kształt danych:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - X_df: </span><span class="si">{</span><span class="n">X_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - y_df: </span><span class="si">{</span><span class="n">y_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Pierwsze 5 wierszy cech (X):&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">X_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Pierwsze 5 etykiet (y):&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">y_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kształt danych:
+  - X_df: (10000, 10)
+  - y_df: (10000, 1)
+
+Pierwsze 5 wierszy cech (X):
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cecha_1</th>
+      <th>cecha_2</th>
+      <th>cecha_3</th>
+      <th>cecha_4</th>
+      <th>cecha_5</th>
+      <th>cecha_6</th>
+      <th>cecha_7</th>
+      <th>cecha_8</th>
+      <th>cecha_9</th>
+      <th>cecha_10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4.883592</td>
+      <td>-4.086414</td>
+      <td>0.055201</td>
+      <td>-1.501626</td>
+      <td>0.434716</td>
+      <td>0.929526</td>
+      <td>0.427166</td>
+      <td>-0.098062</td>
+      <td>0.162102</td>
+      <td>-0.674262</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.617723</td>
+      <td>0.091073</td>
+      <td>-1.583931</td>
+      <td>-0.178106</td>
+      <td>0.225610</td>
+      <td>-0.697776</td>
+      <td>-1.627400</td>
+      <td>0.109911</td>
+      <td>2.614167</td>
+      <td>-0.068870</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-9.198244</td>
+      <td>-1.583987</td>
+      <td>-2.217921</td>
+      <td>0.349554</td>
+      <td>5.243305</td>
+      <td>-3.434703</td>
+      <td>1.562761</td>
+      <td>1.580395</td>
+      <td>-4.184442</td>
+      <td>-1.380812</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-4.146199</td>
+      <td>2.189699</td>
+      <td>-2.109988</td>
+      <td>0.212818</td>
+      <td>-0.023965</td>
+      <td>-1.989150</td>
+      <td>2.001709</td>
+      <td>-0.895136</td>
+      <td>1.204108</td>
+      <td>-0.539487</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-2.365301</td>
+      <td>1.141892</td>
+      <td>-1.231185</td>
+      <td>1.606763</td>
+      <td>0.347243</td>
+      <td>-3.104923</td>
+      <td>2.245082</td>
+      <td>0.707284</td>
+      <td>-0.179552</td>
+      <td>3.559585</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pierwsze 5 etykiet (y):
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>klasa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="krok-4-analiza-eksploracyjna-danych-eda">
+<h2>Krok 4: Analiza eksploracyjna danych (EDA)<a class="headerlink" href="#krok-4-analiza-eksploracyjna-danych-eda" title="Link to this heading">#</a></h2>
+<p>Przed budową modelu warto poznać nasze dane. Sprawdzimy podstawowe statystyki i wizualizacje.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Podstawowe statystyki opisowe</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Statystyki opisowe cech:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">X_df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+
+<span class="c1"># Sprawdzenie, czy brakuje jakichś wartości</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Liczba brakujących wartości w X: </span><span class="si">{</span><span class="n">X_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liczba brakujących wartości w y: </span><span class="si">{</span><span class="n">y_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statystyki opisowe cech:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cecha_1</th>
+      <th>cecha_2</th>
+      <th>cecha_3</th>
+      <th>cecha_4</th>
+      <th>cecha_5</th>
+      <th>cecha_6</th>
+      <th>cecha_7</th>
+      <th>cecha_8</th>
+      <th>cecha_9</th>
+      <th>cecha_10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>-0.932588</td>
+      <td>0.002030</td>
+      <td>-0.970986</td>
+      <td>0.986822</td>
+      <td>-0.495842</td>
+      <td>-0.508307</td>
+      <td>0.494077</td>
+      <td>-0.498248</td>
+      <td>0.010645</td>
+      <td>0.513540</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>3.881307</td>
+      <td>2.037718</td>
+      <td>1.702145</td>
+      <td>1.680416</td>
+      <td>1.850907</td>
+      <td>1.936390</td>
+      <td>1.607506</td>
+      <td>2.613448</td>
+      <td>1.997441</td>
+      <td>1.731811</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-15.944379</td>
+      <td>-7.102671</td>
+      <td>-7.442351</td>
+      <td>-5.559254</td>
+      <td>-7.394572</td>
+      <td>-7.803354</td>
+      <td>-6.033566</td>
+      <td>-10.476747</td>
+      <td>-6.982064</td>
+      <td>-6.156499</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-3.578318</td>
+      <td>-1.376583</td>
+      <td>-2.102693</td>
+      <td>-0.104993</td>
+      <td>-1.742369</td>
+      <td>-1.827907</td>
+      <td>-0.545721</td>
+      <td>-2.220386</td>
+      <td>-1.317776</td>
+      <td>-0.673676</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>-1.083058</td>
+      <td>0.125829</td>
+      <td>-0.951348</td>
+      <td>1.008356</td>
+      <td>-0.578589</td>
+      <td>-0.567991</td>
+      <td>0.593502</td>
+      <td>-0.581974</td>
+      <td>0.054258</td>
+      <td>0.543905</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.595906</td>
+      <td>1.402843</td>
+      <td>0.164727</td>
+      <td>2.107281</td>
+      <td>0.705800</td>
+      <td>0.785883</td>
+      <td>1.590028</td>
+      <td>1.082934</td>
+      <td>1.404745</td>
+      <td>1.693135</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>14.327434</td>
+      <td>6.842219</td>
+      <td>5.611381</td>
+      <td>7.749314</td>
+      <td>6.307248</td>
+      <td>7.004232</td>
+      <td>6.472601</td>
+      <td>10.528498</td>
+      <td>6.936276</td>
+      <td>6.841451</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Liczba brakujących wartości w X: 0
+Liczba brakujących wartości w y: 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wizualizacja rozkładu klas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y_df</span><span class="p">[</span><span class="s1">&#39;klasa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rozkład klas w zbiorze danych&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Klasa&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Liczba próbek&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">y_df</span><span class="p">[</span><span class="s1">&#39;klasa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span>
+                                   <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Proporcje klas&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Wnioski z analizy rozkładu klas:&quot;</span><span class="p">)</span>
+<span class="n">class_balance</span> <span class="o">=</span> <span class="n">y_df</span><span class="p">[</span><span class="s1">&#39;klasa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">class_balance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">class_balance</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  ✓ Klasy są dobrze zbalansowane&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  ⚠ Klasy są niezbalansowane - może być potrzebne ważenie lub resampling&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c9eae801880fa4bd0b49ad41085ef693dce92a85e4249ce5942195605e02e571.png" src="../_images/c9eae801880fa4bd0b49ad41085ef693dce92a85e4249ce5942195605e02e571.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wnioski z analizy rozkładu klas:
+  ✓ Klasy są dobrze zbalansowane
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wizualizacja przykładowych cech</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Wykresy pudełkowe dla pierwszych 4 cech</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">):</span>
+    <span class="n">feature_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;cecha_</span><span class="si">{</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">X_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">y_df</span><span class="p">[</span><span class="s1">&#39;klasa&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">feature_name</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Rozkład </span><span class="si">{</span><span class="n">feature_name</span><span class="si">}</span><span class="s1"> według klasy&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Klasa&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">feature_name</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/00d19923ba8c3fcbe2d04c6d0eb3da9ef0b1520fdefbb44848379f7a75095c24.png" src="../_images/00d19923ba8c3fcbe2d04c6d0eb3da9ef0b1520fdefbb44848379f7a75095c24.png" />
+</div>
+</div>
+</section>
+<section id="krok-5-podzial-danych-na-zbior-treningowy-i-testowy">
+<h2>Krok 5: Podział danych na zbiór treningowy i testowy<a class="headerlink" href="#krok-5-podzial-danych-na-zbior-treningowy-i-testowy" title="Link to this heading">#</a></h2>
+<p>Dzielimy nasze dane na dwie części:</p>
+<ul class="simple">
+<li><p><strong>Zbiór treningowy (80%)</strong>: Do uczenia modelu</p></li>
+<li><p><strong>Zbiór testowy (20%)</strong>: Do oceny wydajności modelu na nowych danych</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Podział danych 80/20</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_df</span><span class="p">,</span>
+    <span class="n">y_df</span><span class="p">,</span>
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>        <span class="c1"># 20% danych do testu</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>      <span class="c1"># dla powtarzalności</span>
+    <span class="n">stratify</span><span class="o">=</span><span class="n">y_df</span>         <span class="c1"># zachowanie proporcji klas w obu zbiorach</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Podział danych:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - Rozmiar zbioru treningowego: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> próbek (</span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">X_df</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - Rozmiar zbioru testowego: </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> próbek (</span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">X_df</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Rozkład klas w zbiorze treningowym:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_train</span><span class="p">[</span><span class="s1">&#39;klasa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Rozkład klas w zbiorze testowym:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_test</span><span class="p">[</span><span class="s1">&#39;klasa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Podział danych:
+  - Rozmiar zbioru treningowego: 8000 próbek (80.0%)
+  - Rozmiar zbioru testowego: 2000 próbek (20.0%)
+
+Rozkład klas w zbiorze treningowym:
+klasa
+0    4022
+1    3978
+Name: count, dtype: int64
+
+Rozkład klas w zbiorze testowym:
+klasa
+0    1006
+1     994
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="krok-6-standaryzacja-danych">
+<h2>Krok 6: Standaryzacja danych<a class="headerlink" href="#krok-6-standaryzacja-danych" title="Link to this heading">#</a></h2>
+<p>Wiele algorytmów ML działa lepiej, gdy cechy mają podobny zakres wartości. Standaryzacja przekształca cechy tak, aby miały średnią 0 i odchylenie standardowe 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicjalizacja skalera</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1"># Dopasowanie skalera tylko do danych treningowych (ważne!)</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>  <span class="c1"># użycie parametrów ze zbioru treningowego</span>
+
+<span class="c1"># Konwersja z powrotem do DataFrame dla wygody</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Standaryzacja zakończona ✓&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Przykład - Statystyki pierwszej cechy przed standaryzacją:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Średnia: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Odchylenie std: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Przykład - Statystyki pierwszej cechy po standaryzacji:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Średnia: </span><span class="si">{</span><span class="n">X_train_scaled</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Odchylenie std: </span><span class="si">{</span><span class="n">X_train_scaled</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standaryzacja zakończona ✓
+
+Przykład - Statystyki pierwszej cechy przed standaryzacją:
+  Średnia: -0.948
+  Odchylenie std: 3.868
+
+Przykład - Statystyki pierwszej cechy po standaryzacji:
+  Średnia: 0.000
+  Odchylenie std: 1.000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="krok-7-budowa-i-trenowanie-modelu-random-forest">
+<h2>Krok 7: Budowa i trenowanie modelu Random Forest<a class="headerlink" href="#krok-7-budowa-i-trenowanie-modelu-random-forest" title="Link to this heading">#</a></h2>
+<p><strong>Random Forest</strong> (Las losowy) to dobry allgorytm uczenia maszynowego, który:</p>
+<ul class="simple">
+<li><p>Tworzy wiele drzew decyzyjnych</p></li>
+<li><p>Każde drzewo uczy się na losowym podzbiorze danych</p></li>
+<li><p>Końcowa predykcja to “głosowanie” wszystkich drzew</p></li>
+</ul>
+<p>Zalety Random Forest:</p>
+<ul class="simple">
+<li><p>Wysoka dokładność</p></li>
+<li><p>Odporność na przeuczenie</p></li>
+<li><p>Możliwość oceny ważności cech</p></li>
+<li><p>Działa dobrze “out of the box” (bez konieczności strojenia)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inicjalizacja modelu Random Forest</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>      <span class="c1"># liczba drzew w lesie</span>
+    <span class="n">max_depth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>          <span class="c1"># maksymalna głębokość drzew</span>
+    <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>   <span class="c1"># minimalna liczba próbek do podziału węzła</span>
+    <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>    <span class="c1"># minimalna liczba próbek w liściu drzewa</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>       <span class="c1"># dla powtarzalności</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>             <span class="c1"># użycie wszystkich dostępnych rdzeni procesora</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rozpoczynam trenowanie modelu...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Trenowanie modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Model wytrenowany pomyślnie! ✓&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Liczba drzew w lesie: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">n_estimators</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maksymalna głębokość drzew: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">max_depth</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rozpoczynam trenowanie modelu...
+==================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model wytrenowany pomyślnie! ✓
+Liczba drzew w lesie: 100
+Maksymalna głębokość drzew: 10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="krok-8-predykcja-i-ewaluacja-modelu">
+<h2>Krok 8: Predykcja i ewaluacja modelu<a class="headerlink" href="#krok-8-predykcja-i-ewaluacja-modelu" title="Link to this heading">#</a></h2>
+<p>Teraz sprawdzimy, jak dobrze nasz model radzi sobie z przewidywaniem klas na nowych, niewidzianych wcześniej danych (zbiór testowy).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predykcja na zbiorze treningowym</span>
+<span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">)</span>
+<span class="n">train_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">)</span>
+
+<span class="c1"># Predykcja na zbiorze testowym</span>
+<span class="n">y_test_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+<span class="n">test_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_pred</span><span class="p">)</span>
+
+<span class="c1"># Prawdopodobieństwa dla krzywej ROC</span>
+<span class="n">y_test_proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">roc_auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_proba</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WYNIKI EWALUACJI MODELU&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dokładność na zbiorze treningowym: </span><span class="si">{</span><span class="n">train_accuracy</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">train_accuracy</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dokładność na zbiorze testowym:     </span><span class="si">{</span><span class="n">test_accuracy</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">test_accuracy</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ROC AUC Score:                      </span><span class="si">{</span><span class="n">roc_auc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Sprawdzenie przeuczenia</span>
+<span class="n">overfitting_diff</span> <span class="o">=</span> <span class="n">train_accuracy</span> <span class="o">-</span> <span class="n">test_accuracy</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Różnica między dokładnością (trening - test): </span><span class="si">{</span><span class="n">overfitting_diff</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">overfitting_diff</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  ✓ Model nie jest przeuczony&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">overfitting_diff</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  ⚠ Lekkie przeuczenie&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  ✗ Znaczące przeuczenie&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================
+WYNIKI EWALUACJI MODELU
+==================================================
+
+Dokładność na zbiorze treningowym: 0.9234 (92.34%)
+Dokładność na zbiorze testowym:     0.8820 (88.20%)
+ROC AUC Score:                      0.9361
+
+Różnica między dokładnością (trening - test): 0.0414
+  ✓ Model nie jest przeuczony
+</pre></div>
+</div>
+</div>
+</div>
+<section id="macierz-pomylek-confusion-matrix">
+<h3>Macierz pomyłek (Confusion Matrix)<a class="headerlink" href="#macierz-pomylek-confusion-matrix" title="Link to this heading">#</a></h3>
+<p>Macierz pomyłek pokazuje szczegółowo, jak model klasyfikuje próbki:</p>
+<ul class="simple">
+<li><p><strong>True Negatives (TN)</strong>: Poprawnie sklasyfikowane jako klasa 0</p></li>
+<li><p><strong>True Positives (TP)</strong>: Poprawnie sklasyfikowane jako klasa 1</p></li>
+<li><p><strong>False Positives (FP)</strong>: Błędnie sklasyfikowane jako klasa 1 (błąd typu I)</p></li>
+<li><p><strong>False Negatives (FN)</strong>: Błędnie sklasyfikowane jako klasa 0 (błąd typu II)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wygenerowanie macierzy pomyłek</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_pred</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja macierzy pomyłek</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Klasa 0&#39;</span><span class="p">,</span> <span class="s1">&#39;Klasa 1&#39;</span><span class="p">],</span>
+            <span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Klasa 0&#39;</span><span class="p">,</span> <span class="s1">&#39;Klasa 1&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Macierz pomyłek&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Rzeczywista klasa&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Przewidziana klasa&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Wyświetlenie szczegółowych wartości</span>
+<span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tp</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Szczegóły macierzy pomyłek:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  True Negatives (TN):  </span><span class="si">{</span><span class="n">tn</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  False Positives (FP): </span><span class="si">{</span><span class="n">fp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  False Negatives (FN): </span><span class="si">{</span><span class="n">fn</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  True Positives (TP):  </span><span class="si">{</span><span class="n">tp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/93e89d2cd26b39016c3e685e8b112d24a08bf29c4e0f144d39455936d3d11de5.png" src="../_images/93e89d2cd26b39016c3e685e8b112d24a08bf29c4e0f144d39455936d3d11de5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Szczegóły macierzy pomyłek:
+  True Negatives (TN):  862
+  False Positives (FP): 144
+  False Negatives (FN): 92
+  True Positives (TP):  902
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="raport-klasyfikacji">
+<h3>Raport klasyfikacji<a class="headerlink" href="#raport-klasyfikacji" title="Link to this heading">#</a></h3>
+<p>Raport zawiera szczegółowe metryki dla każdej klasy:</p>
+<ul class="simple">
+<li><p><strong>Precision (Precyzja)</strong>: Jaki procent pozytywnych predykcji był prawidłowy?</p></li>
+<li><p><strong>Recall (Czułość)</strong>: Jaki procent rzeczywistych pozytywnych przypadków został wykryty?</p></li>
+<li><p><strong>“F1-Score”</strong>: Harmoniczna średnia precision i recall</p></li>
+<li><p><strong>Support</strong>: Liczba rzeczywistych wystąpień każdej klasy</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Szczegółowy raport klasyfikacji</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RAPORT KLASYFIKACJI&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_pred</span><span class="p">,</span>
+                          <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Klasa 0&#39;</span><span class="p">,</span> <span class="s1">&#39;Klasa 1&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================
+RAPORT KLASYFIKACJI
+==================================================
+              precision    recall  f1-score   support
+
+     Klasa 0       0.90      0.86      0.88      1006
+     Klasa 1       0.86      0.91      0.88       994
+
+    accuracy                           0.88      2000
+   macro avg       0.88      0.88      0.88      2000
+weighted avg       0.88      0.88      0.88      2000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="krzywa-roc-receiver-operating-characteristic">
+<h3>Krzywa ROC (Receiver Operating Characteristic)<a class="headerlink" href="#krzywa-roc-receiver-operating-characteristic" title="Link to this heading">#</a></h3>
+<p>Krzywa ROC pokazuje zależność między współczynnikiem prawdziwie dodatnim (TPR) a współczynnikiem fałszywie dodatnim (FPR) dla różnych progów klasyfikacji. Pole pod krzywą (AUC) jest miarą ogólnej jakości modelu:</p>
+<ul class="simple">
+<li><p><strong>AUC = 1.0</strong>: Idealny klasyfikator</p></li>
+<li><p><strong>AUC = 0.5</strong>: Klasyfikator losowy</p></li>
+<li><p><strong>AUC &gt; 0.8</strong>: Bardzo dobry model</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obliczenie krzywej ROC</span>
+<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_proba</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja krzywej ROC</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Krzywa ROC (AUC = </span><span class="si">{</span><span class="n">roc_auc</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Klasyfikator losowy (AUC = 0.500)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Współczynnik fałszywie dodatnich (FPR)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Współczynnik prawdziwie dodatnich (TPR)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Krzywa ROC&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a13e17bccda22899fff3af125dc9f9789ac8babf48b5cc792467a0846d829024.png" src="../_images/a13e17bccda22899fff3af125dc9f9789ac8babf48b5cc792467a0846d829024.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="krok-9-waznosc-cech">
+<h2>Krok 9: Ważność cech<a class="headerlink" href="#krok-9-waznosc-cech" title="Link to this heading">#</a></h2>
+<p>Jedną z zalet algorytmu “lasu losowego” jest możliwość określenia, które cechy były najważniejsze dla predykcji. Im wyższa wartość, tym większy wpływ cechy na model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pobranie ważności cech</span>
+<span class="n">feature_importance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;cecha&#39;</span><span class="p">:</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="s1">&#39;ważność&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;ważność&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Ważność cech (posortowana malejąco):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">feature_importance</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja ważności cech</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">feature_importance</span><span class="p">[</span><span class="s1">&#39;cecha&#39;</span><span class="p">],</span> <span class="n">feature_importance</span><span class="p">[</span><span class="s1">&#39;ważność&#39;</span><span class="p">],</span>
+         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Ważność&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cecha&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ważność cech w modelu Random Forest&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ważność cech (posortowana malejąco):
+==================================================
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cecha</th>
+      <th>ważność</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>cecha_10</td>
+      <td>0.154351</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>cecha_7</td>
+      <td>0.131363</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>cecha_5</td>
+      <td>0.115084</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cecha_4</td>
+      <td>0.093640</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>cecha_9</td>
+      <td>0.092287</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>cecha_8</td>
+      <td>0.091734</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>cecha_3</td>
+      <td>0.090806</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>cecha_6</td>
+      <td>0.090562</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>cecha_1</td>
+      <td>0.072126</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>cecha_2</td>
+      <td>0.068049</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../_images/774db490c4399ed7eca5f0cc5440e827e17004e1dd55e0bba79da881b47bf2c0.png" src="../_images/774db490c4399ed7eca5f0cc5440e827e17004e1dd55e0bba79da881b47bf2c0.png" />
+</div>
+</div>
+</section>
+<section id="podsumowanie">
+<h2>Podsumowanie<a class="headerlink" href="#podsumowanie" title="Link to this heading">#</a></h2>
+<p>W tym notatniku:</p>
+<ol class="arabic simple">
+<li><p>Poznaliśmy podstawy uczenia maszynowego i jego główne rodzaje</p></li>
+<li><p>Stworzyliśmy syntetyczny zbiór danych do klasyfikacji binarnej</p></li>
+<li><p>Przeprowadziliśmy analizę eksploracyjną danych (EDA)</p></li>
+<li><p>Przygotowaliśmy dane (podział train/test, standaryzacja)</p></li>
+<li><p>Zbudowaliśmy i wytrenowaliśmy model Random Forest</p></li>
+<li><p>Oceniliśmy jakość modelu używając różnych metryk</p></li>
+<li><p>Zidentyfikowaliśmy najważniejsze cechy dla predykcji</p></li>
+</ol>
+<section id="nastepne-kroki">
+<h3>Następne kroki<a class="headerlink" href="#nastepne-kroki" title="Link to this heading">#</a></h3>
+<p>Można rozwijać ten projekt np. poprzez:</p>
+<ul class="simple">
+<li><p>eksperymentowanie z innymi algorytmami (np. regresję logistyczną, SVM, XGBoost)</p></li>
+<li><p>optymalizację hiperparametrów (czyli parametrów samego algorytmu, w przeciwieństiwe do parametrów modelu; służą temu klasy GridSearchCV, RandomizedSearchCV)</p></li>
+<li><p>pracę z rzeczywistymi zbiorami danych</p></li>
+<li><p>implementację walidacji krzyżowej (czyli wielu różnych sposobów podziału na dane treningowe i testowe z końcowym uśrednianiem) w celu uzyskania bardziej wiarygodnej klasyfikacji</p></li>
+<li><p>próbę obsługi niezbalansowanych zbiorów danych (częstych w dziedzinie wykrywania oszustw ubezpieczeniowych)</p></li>
+<li><p>zapisywanie i wczytywanie wytrenowanych modeli</p></li>
+</ul>
+</section>
+<section id="przydatne-zasoby">
+<h3>Przydatne zasoby:<a class="headerlink" href="#przydatne-zasoby" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/">Dokumentacja scikit-learn</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/">Kaggle</a> - platforma z zbiorami danych i konkursami uczenia maszynowego (można wygrać cenne nagrody finansowe)</p></li>
+<li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/">UCI Machine Learning Repository</a> - repozytorium zbiorów danych</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Autor:</strong> Asseco z udziałem Anthropic Claude’a. Notebook utworzony jako wstęp do uczenia maszynowego<br />
+<strong>Data:</strong> 2024<br />
+<strong>Wersja:</strong> 1.0</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./podstawy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wstęp do uczenia maszynowego</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#czym-jest-uczenie-maszynowe">Czym jest uczenie maszynowe?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#po-co-w-ogole-uczenie-maszynowe">Po co w ogóle uczenie maszynowe?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rodzaje-uczenia-maszynowego">Rodzaje uczenia maszynowego</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-nadzorowane-supervised-learning">1. Uczenie nadzorowane (Supervised Learning)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-nienadzorowane-unsupervised-learning">2. Uczenie nienadzorowane (Unsupervised Learning)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uczenie-ze-wzmocnieniem-reinforcement-learning">3. Uczenie ze wzmocnieniem (Reinforcement Learning)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podstawowe-pojecia">Podstawowe pojęcia</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cechy-features">Cechy (Features)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#etykiety-labels">Etykiety (Labels)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zbior-treningowy-i-testowy">Zbiór treningowy i testowy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moga-sie-pojawic-klopoty"><em>Mogą się pojawić kłopoty</em>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przeuczenie-overfitting">Przeuczenie (Overfitting)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#niedouczenie-underfitting">Niedouczenie (Underfitting)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typowy-proces-uczenia-maszynowego">Typowy proces uczenia maszynowego</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#popularne-biblioteki-w-pythonie">Popularne biblioteki w Pythonie</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pierwszy-praktyczny-przyklad-klasyfikacja-binarna">Pierwszy praktyczny przykład: Klasyfikacja binarna</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-1-import-bibliotek">Krok 1: Import bibliotek</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-2-generowanie-danych-syntetycznych">Krok 2: Generowanie danych syntetycznych</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-3-konwersja-do-dataframes-pandas">Krok 3: Konwersja do DataFrames pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-4-analiza-eksploracyjna-danych-eda">Krok 4: Analiza eksploracyjna danych (EDA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-5-podzial-danych-na-zbior-treningowy-i-testowy">Krok 5: Podział danych na zbiór treningowy i testowy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-6-standaryzacja-danych">Krok 6: Standaryzacja danych</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-7-budowa-i-trenowanie-modelu-random-forest">Krok 7: Budowa i trenowanie modelu Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-8-predykcja-i-ewaluacja-modelu">Krok 8: Predykcja i ewaluacja modelu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macierz-pomylek-confusion-matrix">Macierz pomyłek (Confusion Matrix)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raport-klasyfikacji">Raport klasyfikacji</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#krzywa-roc-receiver-operating-characteristic">Krzywa ROC (Receiver Operating Characteristic)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krok-9-waznosc-cech">Krok 9: Ważność cech</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#podsumowanie">Podsumowanie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nastepne-kroki">Następne kroki</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#przydatne-zasoby">Przydatne zasoby:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

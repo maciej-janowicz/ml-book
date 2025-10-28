@@ -1,0 +1,1419 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>TensorFlow i Keras &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'biblioteki/rozdzial_07_TensorFlow';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Proste zadania klasyfikacji" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../dane/rozdzial_06_In%C5%BCynieria_cech.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_02_Rodzaje_uczenia_maszynowego.html">Rodzaje uczenia maszynowego</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_03_Matematyka_w_uczeniu_maszynowym.html">Matematyka w uczeniu maszynowym</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dane/rozdzial_05_Metryki_jako%C5%9Bci_w_uczeniu_maszynowym.html">Metryki jakości</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Biblioteka TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html">Proste zadania klasyfikacji</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html">Algorytm K-średnich (K-means)</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../klasyczne_ml/rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe: regresja liniowa, regresja logistyczna</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_15_Sieci_CNN.html">Sieci konwolucyjne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_16_Sieci_RNN.html">Rekurencyjne sieci neuronowe (RNN) to rodzaj sieci neuronowych zaprojektowanych do przetwarzania sekwencji danych, takich jak tekst, dane czasowe czy sygnały.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_17_Sieci_LSTM.html">Sieci LSTM</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_19_Architektury_sieci_neuronowych_1.html">Architektury sieci neuronowych, część 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_20_Transformery.html">Transformery</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensembling/rozdzial_21_Ensembling.html">Metody zespołowe</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fbiblioteki/rozdzial_07_TensorFlow.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/biblioteki/rozdzial_07_TensorFlow.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TensorFlow i Keras</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensoflow">TensoFlow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keras">Keras</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-wykorzystujace-standardowe-pliki-z-danymi">Przykłady (wykorzystujące standardowe pliki z danymi)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porownanie-z-wynikami-algorytmow-ridge-i-lasso">Porównanie z wynikami algorytmów Ridge i Lasso</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-ridge">Algorytm Ridge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-czynnosci">Opis czynności</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uwagi">Uwagi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-cyfr-pisanych-odrecznie">Klasyfikacja cyfr pisanych odręcznie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Opis czynności</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Uwagi:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-zwiazanych-z-odzieza">Klasyfikacja obrazów związanych z odzieżą</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Opis czynności</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-10">Klasyfikacja obrazów CIFAR-10</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-10">Opis zbioru danych CIFAR-10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasy-w-zbiorze-danych">Klasy w zbiorze danych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Opis czynności</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Uwagi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-100">Klasyfikacja obrazów CIFAR-100</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-100">Opis zbioru danych CIFAR-100</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Klasy w zbiorze danych</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Opis czynności</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tensorflow-i-keras">
+<h1>TensorFlow i Keras<a class="headerlink" href="#tensorflow-i-keras" title="Link to this heading">#</a></h1>
+<section id="tensoflow">
+<h2>TensoFlow<a class="headerlink" href="#tensoflow" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>TensorFlow to otwarta biblioteka do uczenia maszynowego i obliczeń numerycznych.</p></li>
+<li><p>Została stworzona przez Google i jest stosowana zarówno w biznesie, jak i w badaniach naukowych.</p></li>
+<li><p>Obsługuje obliczenia na różnych platformach, w tym CPU, GPU i TPU.</p></li>
+<li><p>Zapewnia elastyczność i skalowalność, umożliwiając tworzenie złożonych modeli uczenia maszynowego.</p></li>
+<li><p>Posiada bogaty ekosystem narzędzi i bibliotek, takich jak TensorFlow Extended (TFX) dla przetwarzania danych i TensorFlow Lite dla urządzeń mobilnych.</p></li>
+<li><p>Jest wykorzystywana w różnych dziedzinach, takich jak grafika komputerowa, przetwarzanie języka naturalnego i uczenie wzmacniane.</p></li>
+<li><p>Obsługuje wiele języków programowania, w tym Python, C++ i JavaScript.</p></li>
+</ul>
+</section>
+<section id="keras">
+<h2>Keras<a class="headerlink" href="#keras" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Keras to wysokopoziomowe API do budowania i trenowania modeli uczenia głębokiego.</p></li>
+<li><p>Został stworzony przez François Cholleta i jest obecnie integralną częścią TensorFlow.</p></li>
+<li><p>Umożliwia łatwe i szybkie prototypowanie modeli sieci neuronowych.</p></li>
+<li><p>Obsługuje zarówno modele sekwencyjne, jak i funkcjonalne, umożliwiając tworzenie złożonych architektur.</p></li>
+<li><p>Posiada bogaty zestaw wstępnie zdefiniowanych warstw, funkcji aktywacji i optymalizatorów.</p></li>
+<li><p>Jest kompatybilne z różnymi “backendami”, takimi jak TensorFlow, Theano i CNTK.</p></li>
+<li><p>Jest szeroko stosowane w biznesie i badaniach naukowych dzięki swojej prostocie i elastyczności.</p></li>
+</ul>
+</section>
+<section id="przyklady-wykorzystujace-standardowe-pliki-z-danymi">
+<h2>Przykłady (wykorzystujące standardowe pliki z danymi)<a class="headerlink" href="#przyklady-wykorzystujace-standardowe-pliki-z-danymi" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Zagadnienie regresji - przewidywanie cen nieruchomości (dane z pliku “Boston Housing”)</p></li>
+</ol>
+<ul class="simple">
+<li><p>Cel:</p></li>
+<li><p>Celem jest zbudowanie modelu, który będzie w stanie przewidywać cenę nieruchomości na podstawie dostarczonych cech. Model powinien być w stanie podać dokładne przewidywania cen domów, których danych nie “widział” podczas uczenia.</p></li>
+<li><p>Zadanie:</p></li>
+<li><p>Jest to zagadnienie regresji, w którym chodzi o przewidywanie pewnej ciągłej wartości (mianowicie ceny nieruchomości) na podstawie zestawu cech. W zadaniach regresji model uczy się odwzorowywać dane wejściowe (cechy) na wyjściowe (wartości ciągłe), takie jak cena, temperatura, wysokość, itp.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">boston_housing</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Wczytanie danych</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">boston_housing</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Normalizacja danych</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+<span class="c1"># Budowa modelu</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># Kompilacja modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mae&#39;</span><span class="p">])</span>
+
+<span class="c1"># Trenowanie modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Ocena modelu</span>
+<span class="n">loss</span><span class="p">,</span> <span class="n">mae_neural_network</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Średni błąd bezwzględny: </span><span class="si">{</span><span class="n">mae_neural_network</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="porownanie-z-wynikami-algorytmow-ridge-i-lasso">
+<h2>Porównanie z wynikami algorytmów Ridge i Lasso<a class="headerlink" href="#porownanie-z-wynikami-algorytmow-ridge-i-lasso" title="Link to this heading">#</a></h2>
+<section id="algorytm-ridge">
+<h3>Algorytm Ridge<a class="headerlink" href="#algorytm-ridge" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span>
+
+<span class="c1"># Ładowanie zbioru danych &#39;Boston Housing&#39; z OpenML</span>
+<span class="n">boston</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;boston&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">boston</span><span class="o">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">boston</span><span class="o">.</span><span class="n">target</span>
+
+<span class="c1"># Podział danych na część treningową i testową</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Normalizacja danych</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Definicja modelu Ridge</span>
+<span class="n">ridge_model</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Uczenie modelu Ridge</span>
+<span class="n">ridge_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Określenie jakości modelu Ridge</span>
+<span class="n">y_pred_ridge</span> <span class="o">=</span> <span class="n">ridge_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">mae_ridge</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_ridge</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Średni błąd bezwzględny (Ridge): </span><span class="si">{</span><span class="n">mae_ridge</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Definicja modelu Lasso</span>
+<span class="n">lasso_model</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Uczenie modelu Lasso</span>
+<span class="n">lasso_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Określenie jakości modelu Lasso</span>
+<span class="n">y_pred_lasso</span> <span class="o">=</span> <span class="n">lasso_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">mae_lasso</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_lasso</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Średni błąd bezwzględny (Lasso): </span><span class="si">{</span><span class="n">mae_lasso</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------------------------------------------------------&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Porównanie wyników:&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Średni błąd bezwzględny (Neural Network): </span><span class="si">{</span><span class="n">mae_neural_network</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Średni błąd bezwzględny (Ridge): </span><span class="si">{</span><span class="n">mae_ridge</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Średni błąd bezwzględny (Lasso): </span><span class="si">{</span><span class="n">mae_lasso</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (Ridge): 3.185723807244598
+Mean Absolute Error (Lasso): 3.473770443541664
+-----------------------------------------------------------------------
+Porównanie wyników:
+Mean Absolute Error (Neural Network): 2.8105809688568115
+Mean Absolute Error (Ridge): 3.185723807244598
+Mean Absolute Error (Lasso): 3.473770443541664
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="opis-czynnosci">
+<h3>Opis czynności<a class="headerlink" href="#opis-czynnosci" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Wczytujemy zbiór danych Boston Housing i dzielimy go na zbiór treningowy i testowy.</p></li>
+<li><p>Normalizujemy dane za pomocą StandardScaler.</p></li>
+<li><p>Budujemy model sekwencyjny z trzema warstwami: dwie ukryte warstwy z funkcją aktywacji ReLU i jedna warstwa wyjściowa.</p></li>
+<li><p>Kompilujemy model z optymalizatorem Adam, funkcją straty MSE (błąd średni kwadratowy) i metryką MAE (średni błąd bezwzględny).</p></li>
+<li><p>Trenujemy model przez 100 epok z wielkością partii 10 i walidacją na 20% danych treningowych.</p></li>
+</ol>
+</section>
+<section id="uwagi">
+<h3>Uwagi<a class="headerlink" href="#uwagi" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Warstwa gęsta (ang. “Dense”) to warstwa, w której każdy neuron jest połączony z każdym neuronem w poprzedniej warstwie. Inaczej mówiąc, jest to warstwa pełnego połączenia (ang. “fully connected layer”).<br />
+Każdy neuron w warstwie gęstej otrzymuje dane wyjściowe z każdego neuronu w poprzedniej warstwie i przekazuje swoje dane wyjściowe do każdego neuronu w następnej warstwie.</p></li>
+<li><p>Niektóre inne typy warstw:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Warstwy konwolucyjne (Convolutional Layers):</p></li>
+<li><p>Warstwy konwolucyjne są często używane w sieciach konwolucyjnych (CNN) do przetwarzania obrazów.</p></li>
+<li><p>Każdy neuron w warstwie konwolucyjnej jest połączony tylko z małym obszarem (oknem) w poprzedniej warstwie, co pozwala na wykrywanie lokalnych cech w obrazie.</p></li>
+<li><p>Warstwy rekurencyjne (Recurrent Layers):</p></li>
+<li><p>Warstwy rekurencyjne, takie jak LSTM (Long Short-Term Memory) i GRU (Gated Recurrent Unit), są używane w sieciach rekurencyjnych (RNN) do przetwarzania sekwencji danych, takich jak tekst lub sygnały czasowe.</p></li>
+<li><p>Każdy neuron w warstwie rekurencyjnej ma połączenia z neuronami w poprzedniej warstwie oraz z neuronami w tej samej warstwie z poprzedniego kroku czasowego.</p></li>
+<li><p>Warstwy “pooling” (Pooling Layers):</p></li>
+<li><p>Warstwy “pooling” są używane w sieciach konwolucyjnych do zmniejszenia rozmiaru danych i redukcji obliczeń.</p></li>
+<li><p>Najczęściej używane są warstwy “max-pooling” i “average-pooling”.</p></li>
+<li><p>Warstwy normalizacyjne (Normalization Layers)</p></li>
+<li><p>Warstwy normalizacyjne, takie jak “Batch Normalization”, są używane do normalizacji danych w każdej warstwie, co może przyspieszyć trening i poprawić stabilność modelu.</p></li>
+<li><p>Warstwy “dropout” (Dropout Layers):</p></li>
+<li><p>Warstwy dropout są używane do zapobiegania nadmiernemu dopasowaniu (“overfitting”) poprzez losowe wyłączanie części neuronów podczas treningu.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Argumenty przekazywane do klasy “Dense”:</p></li>
+</ol>
+<ul class="simple">
+<li><p>64:</p>
+<ul>
+<li><p>Liczba neuronów (units). Określa ona liczbę neuronów (lub jednostek) w danej warstwie. W tym przypadku warstwa będzie miała 64 neurony.</p></li>
+<li><p>Znaczenie. Liczba neuronów w warstwie wpływa na zdolność modelu do uczenia się i reprezentowania złożonych wzorców w danych. Więcej neuronów może pozwolić na lepsze dopasowanie do danych, ale może także prowadzić do nadmiernego dopasowania (overfitting).</p></li>
+</ul>
+</li>
+<li><p>activation=’relu’:</p>
+<ul>
+<li><p>Funkcja aktywacji. Określa funkcję aktywacji, która będzie stosowana do wyjść neuronów w tej warstwie. W tym przypadku używana jest funkcja aktywacji ReLU (Rectified Linear Unit).</p></li>
+<li><p>Znaczenie. Funkcja aktywacji wprowadza nieliniowość do modelu, co pozwala na uczenie się bardziej złożonych wzorców. ReLU jest popularną funkcją aktywacji, ponieważ jest prostą i wydajną funkcją, która pomaga w zapobieganiu problemowi zanikającego gradientu.</p></li>
+</ul>
+</li>
+<li><p>input_shape=(x_train.shape[1],):</p>
+<ul>
+<li><p>Kształt wejścia (input shape). Określa kształt danych wejściowych do tej warstwy. W tym przypadku x_train.shape[1] określa liczbę cech (lub wymiarów) w danych wejściowych.</p></li>
+<li><p>Znaczenie. Argument input_shape jest wymagany tylko dla pierwszej warstwy w modelu sekwencyjnym. Określa, jakie dane wejściowe oczekuje model.
+Na przykład, jeśli x_train ma kształt (1000, 20), oznacza to, że dane wejściowe mają 1000 próbek, każda z 20 cechami. W takim przypadku input_shape będzie (20,).</p></li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Argumenty w metodzie kompilacji modelu (model.compile): “model.compile(optimizer=’adam’, loss=’mse’, metrics=[‘mae’])”</p></li>
+</ol>
+<ul class="simple">
+<li><p>optimizer=’adam’:</p>
+<ul>
+<li><p>Optymalizator. Określa algorytm optymalizacji, który będzie używany do aktualizacji wag modelu podczas treningu.</p></li>
+<li><p>Adam. Adam (Adaptive Moment Estimation) jest popularnym algorytmem optymalizacji, który łączy w sobie zalety algorytmów AdaGrad i RMSProp. Adam dostosowuje się do szybkości uczenia dla każdego parametru indywidualnie, co pozwala na szybkie i stabilne trenowanie.</p></li>
+<li><p>Znaczenie. Wybór optymalizatora ma znaczący wpływ na szybkość i jakość treningu modelu. Adam jest często wybierany ze względu na swoją efektywność i stabilność.</p></li>
+</ul>
+</li>
+<li><p>loss=’mse’:</p></li>
+<li><p>Funkcja straty (loss function). Określa funkcję straty, która będzie używana do oceny, jak dobrze model dopasowuje się do danych treningowych.</p></li>
+<li><p>MSE (Mean Squared Error). MSE jest funkcją straty, która oblicza średnią kwadratową różnicę między przewidywanymi wartościami a rzeczywistymi wartościami. Jest często używana w zadaniach regresji.</p></li>
+<li><p>Znaczenie. Funkcja straty mierzy, jak dobrze model przewiduje wyniki. MSE jest popularną funkcją straty dla zadań regresji, ponieważ kara jest wyższa za duże błędy niż za małe.</p></li>
+<li><p>metrics=[‘mae’]:</p></li>
+<li><p>Metryki. Określa metryki, które będą monitorowane podczas treningu i oceny modelu. Metryki te nie wpływają bezpośrednio na proces treningu, ale są używane do oceny jakości modelu.</p></li>
+<li><p>MAE (Mean Absolute Error). MAE jest metryką, która oblicza średnią bezwzględną różnicę między przewidywanymi wartościami a rzeczywistymi wartościami. Ona także jest często używana w zadaniach regresji.</p></li>
+<li><p>Znaczenie. Metryki pozwalają na lepsze zrozumienie wydajności modelu. MAE jest popularną metryką dla zadań regresji, ponieważ jest łatwa do interpretacji i daje dobre wgląd w średni błąd przewidywań.</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>Parametry “epochs” i “batch_size”</p></li>
+</ol>
+<ul class="simple">
+<li><p>epochs=100:</p>
+<ul>
+<li><p>Epoki (epochs): Określa liczbę pełnych przebiegów przez cały zbiór danych treningowych.</p></li>
+<li><p>Znaczenie: Podczas jednej epoki model przetwarza każdy przykład treningowy raz. Liczba epok określa, ile razy model przetworzy cały zbiór danych treningowych. Większa liczba epok może pozwolić modelowi na lepsze dopasowanie się do danych, ale może także prowadzić do nadmiernego dopasowania (overfitting).</p></li>
+<li><p>Przykład: Jeśli mamy 1000 przykładów treningowych i ustawiamy epochs=100, model przetworzy każdy przykład treningowy 100 razy, co daje łącznie 100,000 przebiegów przez dane treningowe.</p></li>
+</ul>
+</li>
+<li><p>batch_size=10:</p></li>
+<li><p>Wielkość partii (batch size): Określa liczbę przykładów treningowych, które są przetwarzane razem w jednym kroku treningu.</p></li>
+<li><p>Znaczenie: Wielkość partii wpływa na to, jak często wagi modelu są aktualizowane. Mniejsze partie mogą prowadzić do częstszych aktualizacji wag, co może przyspieszyć trening, ale może także wprowadzać większy szum do procesu treningu. Większe partie mogą stabilizować proces treningu, ale mogą wymagać więcej pamięci.</p></li>
+<li><p>Przykład: Jeśli mamy 1000 przykładów treningowych i ustawimy batch_size=10, model przetworzy 10 przykładów treningowych w jednym kroku treningu. Cały zbiór danych treningowych zostanie podzielony na 100 partii (1000 / 10 = 100).</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>Różnica między danymi treningowymi i walidacyjnymi</p></li>
+</ol>
+<ul class="simple">
+<li><p>Cel:</p>
+<ul>
+<li><p>Dane walidacyjne: Służą do monitorowania wydajności modelu podczas treningu i dostosowania hiperparametrów.</p></li>
+<li><p>Dane testowe: Służą do ostatecznej oceny wydajności modelu po zakończeniu treningu.</p></li>
+</ul>
+</li>
+<li><p>Użycie:</p>
+<ul>
+<li><p>Dane walidacyjne: Mogą być używane wielokrotnie podczas treningu do dostosowania hiperparametrów i wykrycia nadmiernego dopasowania.</p></li>
+<li><p>Dane testowe: Są używane tylko raz po zakończeniu treningu, aby uzyskać niezależną ocenę jakości modelu.</p></li>
+</ul>
+</li>
+<li><p>Wpływ na uczenie:</p>
+<ul>
+<li><p>Dane walidacyjne: Nie są używane bezpośrednio do aktualizacji wag modelu, ale ich wyniki mogą wpływać na decyzje dotyczące hiperparametrów i zatrzymania treningu.</p></li>
+<li><p>Dane testowe: Nie mają żadnego wpływu na proces treningu i są używane wyłącznie do oceny ostatecznej wydajności modelu.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="klasyfikacja-cyfr-pisanych-odrecznie">
+<h2>Klasyfikacja cyfr pisanych odręcznie<a class="headerlink" href="#klasyfikacja-cyfr-pisanych-odrecznie" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Opis czynności<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Wczytujemy zbiór danych MNIST i normalizujemy obrazy.
+Konwertujemy etykiety do postaci kategorialnej za pomocą to_categorical.</p></li>
+<li><p>Budujemy model sekwencyjny z warstwą spłaszczającą, warstwą ukrytą z funkcją aktywacji ReLU i warstwą wyjściową z funkcją aktywacji softmax.</p></li>
+<li><p>Kompilujemy model z optymalizatorem Adam, funkcją straty categorical_crossentropy i metryką accuracy.</p></li>
+<li><p>Trenujemy model przez 10 epok z wielkością partii 32 i walidacją na 20% danych treningowych.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Flatten</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+
+<span class="c1"># Wczytanie danych</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Normalizacja danych</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+<span class="c1"># Konwersja etykiet do postaci kategorialnej</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+
+<span class="c1"># Budowa modelu</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Flatten</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># Kompilacja modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="c1"># Trenowanie modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Ocena modelu</span>
+<span class="n">loss</span><span class="p">,</span> <span class="n">accuracy</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
+<span class=" -Color -Color-Bold">11490434/11490434</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 0us/step
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/keras/src/layers/reshaping/flatten.py:37: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(**kwargs)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">8s</span> 5ms/step - accuracy: 0.8652 - loss: 0.4785 - val_accuracy: 0.9545 - val_loss: 0.1572
+Epoch 2/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">4s</span> 3ms/step - accuracy: 0.9587 - loss: 0.1407 - val_accuracy: 0.9649 - val_loss: 0.1225
+Epoch 3/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">5s</span> 3ms/step - accuracy: 0.9727 - loss: 0.0900 - val_accuracy: 0.9722 - val_loss: 0.0968
+Epoch 4/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">7s</span> 4ms/step - accuracy: 0.9811 - loss: 0.0646 - val_accuracy: 0.9715 - val_loss: 0.0952
+Epoch 5/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">5s</span> 3ms/step - accuracy: 0.9864 - loss: 0.0470 - val_accuracy: 0.9724 - val_loss: 0.0936
+Epoch 6/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">7s</span> 4ms/step - accuracy: 0.9901 - loss: 0.0358 - val_accuracy: 0.9722 - val_loss: 0.1005
+Epoch 7/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">5s</span> 3ms/step - accuracy: 0.9904 - loss: 0.0317 - val_accuracy: 0.9738 - val_loss: 0.0937
+Epoch 8/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">5s</span> 3ms/step - accuracy: 0.9933 - loss: 0.0238 - val_accuracy: 0.9737 - val_loss: 0.0901
+Epoch 9/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">7s</span> 4ms/step - accuracy: 0.9957 - loss: 0.0168 - val_accuracy: 0.9733 - val_loss: 0.1035
+Epoch 10/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">5s</span> 3ms/step - accuracy: 0.9962 - loss: 0.0144 - val_accuracy: 0.9751 - val_loss: 0.0930
+<span class=" -Color -Color-Bold">313/313</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">1s</span> 1ms/step - accuracy: 0.9743 - loss: 0.0965
+Test Accuracy: 0.9768000245094299
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id2">
+<h2>Uwagi:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Linia: “Flatten(input_shape=(28, 28))” ma następujący sens:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Flatten</p>
+<ul>
+<li><p>Flatten to tzw. “warstwa spłaszczająca” w sieci neuronowej, która przekształca wielowymiarowe dane wejściowe (np. obrazy) w jednowymiarowy wektor.</p></li>
+<li><p>Warstwa taka jest przydatna, gdy chcemy przekształcić dane z formatu macierzy (np. obraz 28x28 pikseli) do formatu wektora (np. wektor o długości 784), aby można było przekazać je do warstwy gęstej (Dense).</p></li>
+</ul>
+</li>
+<li><p>input_shape=(28, 28):</p>
+<ul>
+<li><p>Parametr ‘input_shape’ określa kształt danych wejściowych do warstwy (w tym przypadku spłaszczającej).</p></li>
+<li><p>input_shape=(28, 28) oznacza, że dane wejściowe są obrazami o rozmiarze 28x28 pikseli.</p></li>
+<li><p>Warstwa Flatten przekształca te dane wejściowe z kształtu (28, 28) na kształt (784,), czyli jednowymiarowy wektor o długości 784.</p></li>
+</ul>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Kategorialna entropia krzyżowa (categorical_crossentropy)</p></li>
+</ol>
+<ul class="simple">
+<li><p>“categorical_crossentropy” to funkcja straty używana w zadaniach klasyfikacji, gdzie etykiety są zakodowane jako wektory jednokierunkowe (za pomocą procedury “one-hot encoding”).</p></li>
+<li><p>Jest to miara różnicy między przewidywanymi prawdopodobieństwami klas a rzeczywistymi etykietami klas.</p></li>
+<li><p>Funkcja ta jest często używana w zadaniach klasyfikacji wieloklasowej, gdzie model musi przewidzieć, do której z wielu klas należy dany przykład.</p></li>
+</ul>
+</section>
+<section id="klasyfikacja-obrazow-zwiazanych-z-odzieza">
+<h2>Klasyfikacja obrazów związanych z odzieżą<a class="headerlink" href="#klasyfikacja-obrazow-zwiazanych-z-odzieza" title="Link to this heading">#</a></h2>
+<p>Fashion MNIST to zbiór danych zawierający 70,000 obrazów odzieży i obuwia w skali szarości, podzielonych na 10 różnych klas. Każdy obraz ma rozmiar 28x28 pikseli. Zbiór danych jest podzielony na zbiór treningowy (60,000 obrazów) i zbiór testowy (10,000 obrazów).</p>
+<p>Zawiera on 10 klas, każda reprezentująca jakiś rodzaj ubrania:
+T-shirty, spodnie, swetry, dresy, płaszcze, sandały, bluzki, adidasy, torby, buty “za kostkę”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">fashion_mnist</span>
+
+<span class="c1"># Wczytanie danych</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Wyświetlenie przykładowych obrazów</span>
+<span class="n">nazwy_klas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;T-shirty&#39;</span><span class="p">,</span> <span class="s1">&#39;Spodnie&#39;</span><span class="p">,</span> <span class="s1">&#39;Swetry&#39;</span><span class="p">,</span> <span class="s1">&#39;Dresy&#39;</span><span class="p">,</span> <span class="s1">&#39;Płaszcze&#39;</span><span class="p">,</span> <span class="s1">&#39;Sandały&#39;</span><span class="p">,</span> <span class="s1">&#39;Bluzki&#39;</span><span class="p">,</span> <span class="s1">&#39;Adidasy&#39;</span><span class="p">,</span> <span class="s1">&#39;Torby&#39;</span><span class="p">,</span> <span class="s1">&#39;Buty za kostki&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">nazwy_klas</span><span class="p">[</span><span class="n">y_train</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-labels-idx1-ubyte.gz
+<span class=" -Color -Color-Bold">29515/29515</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 0us/step
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-images-idx3-ubyte.gz
+<span class=" -Color -Color-Bold">26421880/26421880</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 0us/step
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-labels-idx1-ubyte.gz
+<span class=" -Color -Color-Bold">5148/5148</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 1us/step
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-images-idx3-ubyte.gz
+<span class=" -Color -Color-Bold">4422102/4422102</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 0us/step
+</pre></div>
+</div>
+<img alt="../_images/a270f65928415bd84945a0778a3997933978cfee99273f1a39374ac1e1024b53.png" src="../_images/a270f65928415bd84945a0778a3997933978cfee99273f1a39374ac1e1024b53.png" />
+</div>
+</div>
+<section id="id3">
+<h3>Opis czynności<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Wczytujemy zbiór danych Fashion MNIST i normalizujemy obrazy.
+Konwertujemy etykiety do postaci kategorialnej za pomocą to_categorical.</p></li>
+<li><p>Budujemy model sekwencyjny z warstwą spłaszczającą, warstwą ukrytą z funkcją aktywacji ReLU i warstwą wyjściową z funkcją aktywacji softmax.</p></li>
+<li><p>Kompilujemy model z optymalizatorem Adam, funkcją straty categorical_crossentropy i metryką accuracy.</p></li>
+<li><p>Trenujemy model przez 10 epok z wielkością partii 32 i walidacją na 20% danych treningowych.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Flatten</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">fashion_mnist</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+
+<span class="c1"># Wczytanie danych</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Normalizacja danych</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+<span class="c1"># Konwersja etykiet do postaci kategorialnej</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+
+<span class="c1"># Budowa modelu</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Flatten</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># Kompilacja modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="c1"># Trenowanie modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Ocena modelu</span>
+<span class="n">loss</span><span class="p">,</span> <span class="n">accuracy</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-labels-idx1-ubyte.gz
+<span class=" -Color -Color-Bold">29515/29515</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 0us/step
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/train-images-idx3-ubyte.gz
+<span class=" -Color -Color-Bold">26421880/26421880</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 0us/step
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-labels-idx1-ubyte.gz
+<span class=" -Color -Color-Bold">5148/5148</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 0us/step
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/t10k-images-idx3-ubyte.gz
+<span class=" -Color -Color-Bold">4422102/4422102</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 0us/step
+Epoch 1/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">7s</span> 4ms/step - accuracy: 0.7744 - loss: 0.6431 - val_accuracy: 0.8422 - val_loss: 0.4261
+Epoch 2/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">8s</span> 3ms/step - accuracy: 0.8556 - loss: 0.4017 - val_accuracy: 0.8659 - val_loss: 0.3722
+Epoch 3/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">6s</span> 4ms/step - accuracy: 0.8716 - loss: 0.3524 - val_accuracy: 0.8723 - val_loss: 0.3534
+Epoch 4/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">8s</span> 3ms/step - accuracy: 0.8809 - loss: 0.3240 - val_accuracy: 0.8777 - val_loss: 0.3438
+Epoch 5/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">7s</span> 4ms/step - accuracy: 0.8868 - loss: 0.3020 - val_accuracy: 0.8825 - val_loss: 0.3266
+Epoch 6/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">10s</span> 4ms/step - accuracy: 0.8946 - loss: 0.2832 - val_accuracy: 0.8791 - val_loss: 0.3413
+Epoch 7/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">9s</span> 3ms/step - accuracy: 0.9019 - loss: 0.2665 - val_accuracy: 0.8763 - val_loss: 0.3386
+Epoch 8/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">7s</span> 4ms/step - accuracy: 0.9044 - loss: 0.2591 - val_accuracy: 0.8833 - val_loss: 0.3277
+Epoch 9/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">8s</span> 3ms/step - accuracy: 0.9084 - loss: 0.2461 - val_accuracy: 0.8892 - val_loss: 0.3175
+Epoch 10/10
+<span class=" -Color -Color-Bold">1500/1500</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">6s</span> 4ms/step - accuracy: 0.9105 - loss: 0.2375 - val_accuracy: 0.8898 - val_loss: 0.3188
+<span class=" -Color -Color-Bold">313/313</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">1s</span> 1ms/step - accuracy: 0.8806 - loss: 0.3414
+Test Accuracy: 0.8810999989509583
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="klasyfikacja-obrazow-cifar-10">
+<h2>Klasyfikacja obrazów CIFAR-10<a class="headerlink" href="#klasyfikacja-obrazow-cifar-10" title="Link to this heading">#</a></h2>
+<section id="opis-zbioru-danych-cifar-10">
+<h3>Opis zbioru danych CIFAR-10<a class="headerlink" href="#opis-zbioru-danych-cifar-10" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>CIFAR-10 to zbiór danych zawierający 60,000 obrazów kolorowych o rozmiarze 32x32 pikseli, podzielonych na 10 różnych klas.</p></li>
+<li><p>Każdy obraz jest reprezentowany przez trzy kanały kolorów (czerwony, zielony, niebieski).</p></li>
+<li><p>Zbiór danych jest podzielony na zbiór treningowy (50,000 obrazów) i zbiór testowy (10,000 obrazów).</p></li>
+</ul>
+</section>
+<section id="klasy-w-zbiorze-danych">
+<h3>Klasy w zbiorze danych<a class="headerlink" href="#klasy-w-zbiorze-danych" title="Link to this heading">#</a></h3>
+<p>Zbiór danych CIFAR-10 zawiera 10 klas, każda reprezentująca rodzaj obiektu:
+samolot, samochód, ptak, kot, jeleń, pies, żaba, koń, statek, ciężarówka.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Przykłady:</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">cifar10</span>
+
+<span class="c1"># Wczytanie danych</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">cifar10</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Wyświetlenie przykładowych obrazów</span>
+<span class="n">nazwy_klas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Samoloty&#39;</span><span class="p">,</span> <span class="s1">&#39;Samochody&#39;</span><span class="p">,</span> <span class="s1">&#39;Ptaki&#39;</span><span class="p">,</span> <span class="s1">&#39;Koty&#39;</span><span class="p">,</span> <span class="s1">&#39;Jelenie&#39;</span><span class="p">,</span> <span class="s1">&#39;Psy&#39;</span><span class="p">,</span> <span class="s1">&#39;Żaby&#39;</span><span class="p">,</span> <span class="s1">&#39;Konie&#39;</span><span class="p">,</span> <span class="s1">&#39;Statki&#39;</span><span class="p">,</span> <span class="s1">&#39;Ciężarówki&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">nazwy_klas</span><span class="p">[</span><span class="n">y_train</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
+<span class=" -Color -Color-Bold">170498071/170498071</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">3s</span> 0us/step
+</pre></div>
+</div>
+<img alt="../_images/e1e4d797df3df6c19a580e7c00781b520bfd82b054924a1fb85e328e02b94ffb.png" src="../_images/e1e4d797df3df6c19a580e7c00781b520bfd82b054924a1fb85e328e02b94ffb.png" />
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>Opis czynności<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Wczytujemy zbiór danych CIFAR-10 i normalizujemy obrazy.
+Konwertujemy etykiety do postaci kategorialnej za pomocą to_categorical.</p></li>
+<li><p>Budujemy model sekwencyjny z warstwami konwolucyjnymi, warstwami max-pooling, warstwą spłaszczającą, warstwą ukrytą z funkcją aktywacji ReLU i warstwą wyjściową z funkcją aktywacji softmax.</p></li>
+<li><p>Kompilujemy model z optymalizatorem Adam, funkcją straty categorical_crossentropy i metryką accuracy.</p></li>
+<li><p>Trenujemy model przez 10 epok z wielkością partii 64 i walidacją na 20% danych treningowych.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">cifar10</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+
+<span class="c1"># Wczytanie danych</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">cifar10</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Normalizacja danych</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+<span class="c1"># Konwersja etykiet do postaci kategorialnej</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+
+<span class="c1"># Budowa modelu</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+    <span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">Flatten</span><span class="p">(),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># Kompilacja modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="c1"># Trenowanie modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Ocena modelu</span>
+<span class="n">loss</span><span class="p">,</span> <span class="n">accuracy</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
+<span class=" -Color -Color-Bold">170498071/170498071</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">3s</span> 0us/step
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/keras/src/layers/convolutional/base_conv.py:107: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">56s</span> 87ms/step - accuracy: 0.2992 - loss: 1.8736 - val_accuracy: 0.4835 - val_loss: 1.4116
+Epoch 2/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">79s</span> 82ms/step - accuracy: 0.5171 - loss: 1.3463 - val_accuracy: 0.5763 - val_loss: 1.1961
+Epoch 3/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">83s</span> 85ms/step - accuracy: 0.5950 - loss: 1.1501 - val_accuracy: 0.6212 - val_loss: 1.0768
+Epoch 4/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">52s</span> 83ms/step - accuracy: 0.6303 - loss: 1.0444 - val_accuracy: 0.6452 - val_loss: 1.0075
+Epoch 5/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">81s</span> 80ms/step - accuracy: 0.6667 - loss: 0.9542 - val_accuracy: 0.6495 - val_loss: 1.0000
+Epoch 6/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">81s</span> 79ms/step - accuracy: 0.6855 - loss: 0.9011 - val_accuracy: 0.6695 - val_loss: 0.9453
+Epoch 7/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">81s</span> 77ms/step - accuracy: 0.7063 - loss: 0.8323 - val_accuracy: 0.6990 - val_loss: 0.8761
+Epoch 8/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">83s</span> 79ms/step - accuracy: 0.7265 - loss: 0.7823 - val_accuracy: 0.7007 - val_loss: 0.8830
+Epoch 9/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">80s</span> 77ms/step - accuracy: 0.7413 - loss: 0.7454 - val_accuracy: 0.6921 - val_loss: 0.9114
+Epoch 10/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">83s</span> 79ms/step - accuracy: 0.7563 - loss: 0.6908 - val_accuracy: 0.7038 - val_loss: 0.8745
+<span class=" -Color -Color-Bold">313/313</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">3s</span> 11ms/step - accuracy: 0.7014 - loss: 0.8639
+Test Accuracy: 0.6949999928474426
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>Uwagi<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Conv2D:</p>
+<ul class="simple">
+<li><p>Conv2D to warstwa konwolucyjna, która jest często używana w sieciach konwolucyjnych (CNN) do przetwarzania obrazów. Warstwa ta stosuje operację konwolucji do danych wejściowych, co pozwala na wykrywanie lokalnych cech w obrazie.</p></li>
+</ul>
+</li>
+<li><p>Arugment “32”:</p>
+<ul class="simple">
+<li><p>Jest to tzw. liczba filtrów (filters). Określa liczbę filtrów (lub jąder konwolucyjnych) w tej warstwie. W tym przypadku warstwa będzie miała 32 filtry.</p></li>
+<li><p>Znaczenie: liczba filtrów określa, ile różnych cech będzie wykrywanych w tej warstwie. Więcej filtrów pozwala na wykrywanie większej liczby cech, ale zwiększa złożoność obliczeniową.</p></li>
+</ul>
+</li>
+<li><p>Argument (3, 3):</p>
+<ul class="simple">
+<li><p>Rozmiar filtra (kernel size): Określa rozmiar filtra konwolucyjnego. W tym przypadku filtr ma rozmiar 3x3 pikseli.</p></li>
+<li><p>Znaczenie: rozmiar filtra określa, jak duży obszar obrazu jest przetwarzany jednocześnie. Mniejsze filtry mogą wykrywać bardziej lokalne cechy, podczas gdy większe filtry mogą wykrywać bardziej globalne cechy.</p></li>
+</ul>
+</li>
+<li><p>Argument activation=’relu’:</p>
+<ul class="simple">
+<li><p>Funkcja aktywacji: określa funkcję aktywacji, która będzie stosowana do wyjść neuronów w tej warstwie. W tym przypadku używana jest funkcja aktywacji ReLU (Rectified Linear Unit).</p></li>
+<li><p>Znaczenie: funkcja aktywacji wprowadza nieliniowość do modelu, co pozwala na uczenie się bardziej złożonych wzorców. ReLU jest popularną funkcją aktywacji, ponieważ jest prostą i wydajną funkcją, która pomaga w zapobieganiu problemowi zanikającego gradientu.</p></li>
+</ul>
+</li>
+<li><p>Argument input_shape=(32, 32, 3):</p>
+<ul class="simple">
+<li><p>Kształt wejścia (input shape): Określa kształt danych wejściowych do tej warstwy. W tym przypadku input_shape=(32, 32, 3) oznacza, że dane wejściowe są obrazami o rozmiarze 32x32 pikseli z trzema kanałami kolorów (czerwony, zielony, niebieski).</p></li>
+<li><p>Znaczenie: argument “input_shape” jest wymagany tylko dla pierwszej warstwy w modelu sekwencyjnym. Określa, jakie dane wejściowe oczekuje model. Na przykład, jeśli x_train ma kształt (50000, 32, 32, 3), oznacza to, że mamy 50000 obrazów, każdy o rozmiarze 32x32 pikseli z trzema kanałami kolorów.</p></li>
+</ul>
+</li>
+<li><p>MaxPooling2D:</p>
+<ul class="simple">
+<li><p>MaxPooling2D to warstwa, która jest często używana w sieciach konwolucyjnych (CNN) do zmniejszenia rozmiaru danych i redukcji obliczeń.</p></li>
+</ul>
+</li>
+<li><p>Argument (2, 2):</p>
+<ul class="simple">
+<li><p>Rozmiar okna (“pool size:). Określa on rozmiar okna, w którym jest wykonywana operacja “max-pooling”. W tym przypadku rozmiar okna to 2x2 pikseli.</p></li>
+<li><p>Znaczenie: rozmiar okna określa, jak duży obszar obrazu jest przetwarzany jednocześnie. W tym przypadku, dla każdego okna 2x2 pikseli, warstwa wybiera największą wartość (maksimum) z tego okna i przekazuje ją dalej.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="klasyfikacja-obrazow-cifar-100">
+<h2>Klasyfikacja obrazów CIFAR-100<a class="headerlink" href="#klasyfikacja-obrazow-cifar-100" title="Link to this heading">#</a></h2>
+<section id="opis-zbioru-danych-cifar-100">
+<h3>Opis zbioru danych CIFAR-100<a class="headerlink" href="#opis-zbioru-danych-cifar-100" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>CIFAR-100 to zbiór danych zawierający 60,000 obrazów kolorowych o rozmiarze 32x32 pikseli, podzielonych na 100 różnych klas.</p></li>
+<li><p>Każdy obraz jest reprezentowany przez trzy kanały kolorów (czerwony, zielony, niebieski).</p></li>
+<li><p>Zbiór danych jest podzielony na zbiór treningowy (50,000 obrazów) i zbiór testowy (10,000 obrazów).</p></li>
+</ul>
+<section id="id6">
+<h4>Klasy w zbiorze danych<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p>Zbiór danych CIFAR-100 zawiera 100 klas, każda reprezentująca rodzaj obiektu. Klasy są podzielone na 20 nadkategorii, każda zawierająca 5 klas. Na przykład kategoria “duże drapieżniki” zawiera obrazu niedźwiedzia, lamparta, lwa, tygrysa i wilka.</p>
+</section>
+</section>
+</section>
+<section id="id7">
+<h2>Opis czynności<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Wczytujemy zbiór danych CIFAR-100 i normalizujemy obrazy.
+</pre></div>
+</div>
+</li>
+<li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Konwertujemy etykiety do postaci kategorialnej za pomocą to_categorical.
+</pre></div>
+</div>
+</li>
+<li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Budujemy model sekwencyjny z warstwami konwolucyjnymi, warstwami max-pooling, warstwą spłaszczającą, warstwą ukrytą z funkcją aktywacji ReLU i warstwą wyjściową z funkcją aktywacji softmax.
+</pre></div>
+</div>
+</li>
+<li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Kompilujemy model z optymalizatorem Adam, funkcją straty 5. categorical_crossentropy i metryką accuracy.
+</pre></div>
+</div>
+</li>
+<li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Trenujemy model przez 10 epok z wielkością partii 64 i walidacją na 20% danych treningowych.
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Dense</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">cifar100</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+
+<span class="c1"># Wczytanie danych</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">cifar100</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Normalizacja danych</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+<span class="c1"># Konwersja etykiet do postaci kategorialnej</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Definicja modelu</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+    <span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">MaxPooling2D</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+    <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">Flatten</span><span class="p">(),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># Kompilacja modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="c1"># Trenowanie modelu</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Ocena modelu</span>
+<span class="n">loss</span><span class="p">,</span> <span class="n">accuracy</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz
+<span class=" -Color -Color-Bold">169001437/169001437</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">3s</span> 0us/step
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/keras/src/layers/convolutional/base_conv.py:107: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">60s</span> 93ms/step - accuracy: 0.0385 - loss: 4.3662 - val_accuracy: 0.1339 - val_loss: 3.6665
+Epoch 2/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">77s</span> 85ms/step - accuracy: 0.1594 - loss: 3.5290 - val_accuracy: 0.1928 - val_loss: 3.3270
+Epoch 3/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">51s</span> 81ms/step - accuracy: 0.2309 - loss: 3.1437 - val_accuracy: 0.2552 - val_loss: 3.0626
+Epoch 4/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">80s</span> 78ms/step - accuracy: 0.2745 - loss: 2.9054 - val_accuracy: 0.2850 - val_loss: 2.8793
+Epoch 5/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">86s</span> 84ms/step - accuracy: 0.3121 - loss: 2.7242 - val_accuracy: 0.2932 - val_loss: 2.8424
+Epoch 6/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">91s</span> 99ms/step - accuracy: 0.3370 - loss: 2.5957 - val_accuracy: 0.3234 - val_loss: 2.7090
+Epoch 7/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">70s</span> 81ms/step - accuracy: 0.3650 - loss: 2.4614 - val_accuracy: 0.3269 - val_loss: 2.6935
+Epoch 8/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">80s</span> 78ms/step - accuracy: 0.3807 - loss: 2.3825 - val_accuracy: 0.3359 - val_loss: 2.6278
+Epoch 9/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">52s</span> 83ms/step - accuracy: 0.4029 - loss: 2.2985 - val_accuracy: 0.3476 - val_loss: 2.6271
+Epoch 10/10
+<span class=" -Color -Color-Bold">625/625</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">50s</span> 81ms/step - accuracy: 0.4138 - loss: 2.2177 - val_accuracy: 0.3461 - val_loss: 2.6031
+<span class=" -Color -Color-Bold">313/313</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">5s</span> 16ms/step - accuracy: 0.3469 - loss: 2.5747
+Test Accuracy: 0.34880000352859497
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./biblioteki"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../dane/rozdzial_06_In%C5%BCynieria_cech.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../klasyczne_ml/rozdzial_09_Uczenie_nadzorowane.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Proste zadania klasyfikacji</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensoflow">TensoFlow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keras">Keras</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#przyklady-wykorzystujace-standardowe-pliki-z-danymi">Przykłady (wykorzystujące standardowe pliki z danymi)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#porownanie-z-wynikami-algorytmow-ridge-i-lasso">Porównanie z wynikami algorytmów Ridge i Lasso</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-ridge">Algorytm Ridge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-czynnosci">Opis czynności</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uwagi">Uwagi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-cyfr-pisanych-odrecznie">Klasyfikacja cyfr pisanych odręcznie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Opis czynności</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Uwagi:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-zwiazanych-z-odzieza">Klasyfikacja obrazów związanych z odzieżą</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Opis czynności</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-10">Klasyfikacja obrazów CIFAR-10</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-10">Opis zbioru danych CIFAR-10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasy-w-zbiorze-danych">Klasy w zbiorze danych</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Opis czynności</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Uwagi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasyfikacja-obrazow-cifar-100">Klasyfikacja obrazów CIFAR-100</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-zbioru-danych-cifar-100">Opis zbioru danych CIFAR-100</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Klasy w zbiorze danych</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Opis czynności</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

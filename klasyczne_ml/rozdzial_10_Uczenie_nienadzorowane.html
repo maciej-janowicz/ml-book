@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Algorytm K-średnich (K-means) &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Modele liniowe: regresja liniowa, regresja logistyczna" href="rozdzial_11_Modele_liniowe_i_drzewiaste.html" />
+    <link rel="prev" title="Proste zadania klasyfikacji" href="rozdzial_09_Uczenie_nadzorowane.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_02_Rodzaje_uczenia_maszynowego.html">Rodzaje uczenia maszynowego</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../podstawy/rozdzial_03_Matematyka_w_uczeniu_maszynowym.html">Matematyka w uczeniu maszynowym</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dane/rozdzial_05_Metryki_jako%C5%9Bci_w_uczeniu_maszynowym.html">Metryki jakości</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../biblioteki/rozdzial_07_TensorFlow.html">Biblioteka TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rozdzial_09_Uczenie_nadzorowane.html">Proste zadania klasyfikacji</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Algorytm K-średnich (K-means)</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="rozdzial_11_Modele_liniowe_i_drzewiaste.html">Modele liniowe: regresja liniowa, regresja logistyczna</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_15_Sieci_CNN.html">Sieci konwolucyjne</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_16_Sieci_RNN.html">Rekurencyjne sieci neuronowe (RNN) to rodzaj sieci neuronowych zaprojektowanych do przetwarzania sekwencji danych, takich jak tekst, dane czasowe czy sygnały.</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_17_Sieci_LSTM.html">Sieci LSTM</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_19_Architektury_sieci_neuronowych_1.html">Architektury sieci neuronowych, część 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../g%C5%82%C4%99bokie_ml/rozdzial_20_Transformery.html">Transformery</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ensembling/rozdzial_21_Ensembling.html">Metody zespołowe</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fklasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/klasyczne_ml/rozdzial_10_Uczenie_nienadzorowane.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Algorytm K-średnich (K-means)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Algorytm K-średnich (K-means)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-algorytmu">Opis algorytmu:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-dbscan-density-based-spatial-clustering-of-applications-with-noise">Algorytm DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Opis algorytmu:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametr-eps">Parametr eps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wplyw-na-wyniki">Wpływ na wyniki:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametr-min-samples">Parametr min_samples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Wpływ na wyniki:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-hierarchicznej-klasteryzacji-hierarchical-clustering">Algorytm Hierarchicznej Klasteryzacji (Hierarchical Clustering)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Opis algorytmu:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#znaczenie-zmiennej-linked">Znaczenie zmiennej ‘linked’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parametr-single">Parametr ‘single’</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#znaczenie-parametru-single-okresla-on-metode-obliczania-odleglosci-miedzy-klastrami-w-algorytmie-hierarchicznej-klasteryzacji">Znaczenie parametru ‘single’: określa on metodę obliczania odległości między klastrami w algorytmie hierarchicznej klasteryzacji.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inne-metody-laczenia">Inne “metody łączenia”:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-gaussowskich-mieszanin-gaussian-mixture-models-gmm">Algorytm Gaussowskich Mieszanin (Gaussian Mixture Models, GMM)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Opis algorytmu:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-analizy-glownych-skladowych-principal-component-analysis-pca">Algorytm Analizy Głównych Składowych (Principal Component Analysis, PCA)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Opis algorytmu:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uporzadkowanie-wedlug-wariancji">Uporządkowanie według wariancji:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporcja-wyjasnionej-wariancji">“Proporcja wyjaśnionej wariancji”:</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="algorytm-k-srednich-k-means">
+<h1>Algorytm K-średnich (K-means)<a class="headerlink" href="#algorytm-k-srednich-k-means" title="Link to this heading">#</a></h1>
+<section id="opis-algorytmu">
+<h2>Opis algorytmu:<a class="headerlink" href="#opis-algorytmu" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Algorytm K-średnich jest metodą klasteryzacji, która dzieli dane na K klastrów.</p></li>
+<li><p>Każdy punkt danych jest przypisywany do najbliższego tzw. centroidu, reprezentującego cały klaster.</p></li>
+<li><p>Centroidy są aktualizowane jako (swego rodzaju) średnie punktów w klastrze.</p></li>
+<li><p>Proces powtarza się do momentu, gdy położenia centroidów ustabilizują się.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Generowanie danych</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># Wykorzystanie algorytmu K-średnich</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Wyniki</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Centroidy:&quot;</span><span class="p">,</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Przypisania klastrów:&quot;</span><span class="p">,</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Centroidy: [[2.5 1. ]
+ [2.5 4. ]]
+Przypisania klastrów: [0 1 0 0 1 0]
+</pre></div>
+</div>
+<img alt="../_images/9a7f477288fd74cf38a5ecde10648d5064a4119c7d68b1411b941efce483528f.png" src="../_images/9a7f477288fd74cf38a5ecde10648d5064a4119c7d68b1411b941efce483528f.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="algorytm-dbscan-density-based-spatial-clustering-of-applications-with-noise">
+<h1>Algorytm DBSCAN (Density-Based Spatial Clustering of Applications with Noise)<a class="headerlink" href="#algorytm-dbscan-density-based-spatial-clustering-of-applications-with-noise" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>Opis algorytmu:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>DBSCAN jest algorytmem klasteryzacji opartym na gęstości.</p></li>
+<li><p>Oznacza to, że poszczególne punkty są grupowane na podstawie gęstości (innych) punktów w ich otoczeniu.</p></li>
+<li><p>Punkty, które nie należą do żadnego klastra, są traktowane jako szum.</p></li>
+<li><p>Algorytm nie wymaga z góry określonej liczby klastrów.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Generowanie danych</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">80</span><span class="p">]])</span>
+
+<span class="c1"># Wykorzystanie algorytmu DBSCAN</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Wyniki</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Liczba klastrów:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">labels_</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">db</span><span class="o">.</span><span class="n">labels_</span> <span class="k">else</span> <span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Etykiety klastrów:&quot;</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Liczba klastrów: 2
+Etykiety klastrów: [ 0  0  0  1  1 -1]
+</pre></div>
+</div>
+<img alt="../_images/f855c27dacb51808c00fcd65fd398aabc24c8a45a5c719b344d85d78b1b0d841.png" src="../_images/f855c27dacb51808c00fcd65fd398aabc24c8a45a5c719b344d85d78b1b0d841.png" />
+</div>
+</div>
+</section>
+<section id="parametr-eps">
+<h2>Parametr eps<a class="headerlink" href="#parametr-eps" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Znaczenie: <span class="math notranslate nohighlight">\(eps\)</span> (epsilon) określa maksymalną odległość między dwoma punktami, aby mogły jeszcze być uznane za sąsiadów.</p></li>
+<li><p>Inaczej mówiąc, jest to promień sfery (w przestrzeni wielowymiarowej) wokół każdego punktu, w której algorytm szuka sąsiadów.</p></li>
+</ul>
+<section id="wplyw-na-wyniki">
+<h3>Wpływ na wyniki:<a class="headerlink" href="#wplyw-na-wyniki" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Jeśli eps jest zbyt małe, algorytm może nie znaleźć wystarczającej liczby sąsiadów, co może prowadzić do wielu małych klastrów lub dużej liczby punktów uznanych za szum.</p></li>
+<li><p>Jeśli eps jest zbyt duże, algorytm może łączyć punkty, które nie powinny być w tym samym klastrze, co może prowadzić do zbyt dużych klastrów.</p></li>
+</ul>
+</section>
+</section>
+<section id="parametr-min-samples">
+<h2>Parametr min_samples<a class="headerlink" href="#parametr-min-samples" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Znaczenie: min_samples określa minimalną liczbę punktów, które muszą znajdować się w promieniu eps, aby punkt był uznany za punkt rdzeniowy (core point).</p></li>
+<li><p>Punkty rdzeniowe są tymi, które mają wystarczającą liczbę sąsiadów, aby utworzyć wokół nich klaster.</p></li>
+</ul>
+<section id="id2">
+<h3>Wpływ na wyniki:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Jeśli min_samples jest zbyt małe, algorytm może uznawać za punkty rdzeniowe punkty, które nie powinny być rdzeniowe, co może prowadzić do tworzenia zbyt dużych klastrów.</p></li>
+<li><p>Jeśli min_samples jest zbyt duże, algorytm może nie znaleźć wystarczającej liczby punktów rdzeniowych, co może prowadzić do wielu małych klastrów lub dużej liczby punktów uznanych za szum.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="algorytm-hierarchicznej-klasteryzacji-hierarchical-clustering">
+<h1>Algorytm Hierarchicznej Klasteryzacji (Hierarchical Clustering)<a class="headerlink" href="#algorytm-hierarchicznej-klasteryzacji-hierarchical-clustering" title="Link to this heading">#</a></h1>
+<section id="id3">
+<h2>Opis algorytmu:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Hierarchiczna klasteryzacja tworzy drzewo klastrów.</p></li>
+<li><p>Punkty są łączone w klastry na podstawie odległości między nimi.</p></li>
+<li><p>Można używać różnych metryk odległości (np. euklidesowej).</p></li>
+<li><p>Wynikiem jest dendrogram, który pokazuje hierarchię klastrów.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span><span class="p">,</span> <span class="n">linkage</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Generowanie danych</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># Wykorzystanie hierarchicznej klasteryzacji</span>
+<span class="n">linked</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="s1">&#39;single&#39;</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja dendrogramu</span>
+<span class="n">dendrogram</span><span class="p">(</span><span class="n">linked</span><span class="p">,</span>
+           <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
+           <span class="n">distance_sort</span><span class="o">=</span><span class="s1">&#39;descending&#39;</span><span class="p">,</span>
+           <span class="n">show_leaf_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b78bdb331e963043d679bd9fafb33892c61c01082fe243a13c25983e7d055696.png" src="../_images/b78bdb331e963043d679bd9fafb33892c61c01082fe243a13c25983e7d055696.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="znaczenie-zmiennej-linked">
+<h1>Znaczenie zmiennej ‘linked’<a class="headerlink" href="#znaczenie-zmiennej-linked" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Zmienna linked jest wynikiem funkcji linkage z biblioteki scipy.cluster.hierarchy.</p></li>
+<li><p>Zawiera ona macierz łączeń (linkage matrix), która opisuje, jak punkty są łączone w klastry w kolejnych krokach algorytmu.</p></li>
+<li><p>Każdy wiersz macierzy łączeń reprezentuje połączenie dwóch klastrów (lub punktów) i zawiera następujące informacje:</p></li>
+<li><p>Indeksy klastrów (lub punktów) połączonych w danym kroku.</p></li>
+<li><p>Odległości między połączonymi klastrami (lub punktami).</p></li>
+<li><p>Liczbę elementów w nowo utworzonym klastrze.</p></li>
+</ul>
+</section>
+<section id="parametr-single">
+<h1>Parametr ‘single’<a class="headerlink" href="#parametr-single" title="Link to this heading">#</a></h1>
+<section id="znaczenie-parametru-single-okresla-on-metode-obliczania-odleglosci-miedzy-klastrami-w-algorytmie-hierarchicznej-klasteryzacji">
+<h2>Znaczenie parametru ‘single’: określa on metodę obliczania odległości między klastrami w algorytmie hierarchicznej klasteryzacji.<a class="headerlink" href="#znaczenie-parametru-single-okresla-on-metode-obliczania-odleglosci-miedzy-klastrami-w-algorytmie-hierarchicznej-klasteryzacji" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Jest to jedna z “metod łączenia” (linkage methods), które decydują, jak obliczać odległość między nowo utworzonym klasterem a innymi klastrami.</p></li>
+<li><p>Metoda ‘single’ (pojedyncze łączenie) oblicza odległość jako minimalną odległość między punktami w różnych klastrach.</p></li>
+<li><p>Inaczej mówiąc, jest to odległość między najbliższymi sobie punktami w dwóch różnych klastrach.</p></li>
+</ul>
+</section>
+<section id="inne-metody-laczenia">
+<h2>Inne “metody łączenia”:<a class="headerlink" href="#inne-metody-laczenia" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>‘complete’: Odległość między najdalszymi punktami w dwóch klastrach.</p></li>
+<li><p>‘average’: Średnia odległość między wszystkimi punktami w dwóch klastrach.</p></li>
+<li><p>‘centroid’: Odległość między centroidami dwóch klastrów.</p></li>
+<li><p>‘median’: Odległość między medianami dwóch klastrów.</p></li>
+<li><p>‘ward’: Metoda minimalizująca sumę kwadratów odległości między punktami w klastrach.</p></li>
+</ul>
+</section>
+</section>
+<section id="algorytm-gaussowskich-mieszanin-gaussian-mixture-models-gmm">
+<h1>Algorytm Gaussowskich Mieszanin (Gaussian Mixture Models, GMM)<a class="headerlink" href="#algorytm-gaussowskich-mieszanin-gaussian-mixture-models-gmm" title="Link to this heading">#</a></h1>
+<section id="id4">
+<h2>Opis algorytmu:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>GMM jest modelem probabilistycznym, który zakłada, że dane pochodzą z mieszaniny kilku rozkładów Gaussa.</p></li>
+<li><p>Każdy klaster jest reprezentowany przez rozkład Gaussa.</p></li>
+<li><p>Algorytm używa tzw. metody EM (“Expectation-Maximization”) do dopasowania modelu.</p></li>
+<li><p>Wynikiem są parametry rozkładów Gaussa dla każdego klastra.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Generowanie danych</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># Wykorzystanie algorytmu GMM</span>
+<span class="n">gmm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">gmm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Wyniki</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Średnie:&quot;</span><span class="p">,</span> <span class="n">gmm</span><span class="o">.</span><span class="n">means_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Etykiety klastrów:&quot;</span><span class="p">,</span> <span class="n">gmm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+
+<span class="c1"># Wizualizacja</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">gmm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Średnie: [[4. 2.]
+ [1. 2.]]
+Etykiety klastrów: [1 1 1 0 0 0]
+</pre></div>
+</div>
+<img alt="../_images/2cbbccb4ce34ab7bcf6a88e15038b68062a081d2e36b0fc1f18ca9213eb85081.png" src="../_images/2cbbccb4ce34ab7bcf6a88e15038b68062a081d2e36b0fc1f18ca9213eb85081.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="algorytm-analizy-glownych-skladowych-principal-component-analysis-pca">
+<h1>Algorytm Analizy Głównych Składowych (Principal Component Analysis, PCA)<a class="headerlink" href="#algorytm-analizy-glownych-skladowych-principal-component-analysis-pca" title="Link to this heading">#</a></h1>
+<section id="id5">
+<h2>Opis algorytmu:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>PCA jest techniką redukcji wymiarowości.</p></li>
+<li><p>Transformuje dane do nowej przestrzeni, gdzie nowe osie (składowe główne) są liniowymi kombinacjami oryginalnych zmiennych.</p></li>
+<li><p>Składowe główne są uporządkowane według wariancji.</p></li>
+<li><p>Używany do wizualizacji i redukcji zbędnych wymiarów.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Generowanie danych</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">1.9</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]])</span>
+
+<span class="c1"># Wykorzystanie algorytmu PCA</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Wyniki</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Składowe główne:&quot;</span><span class="p">,</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wariancja wyjaśniona:&quot;</span><span class="p">,</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
+
+<span class="c1"># Wizualizacja</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;PCA 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PCA 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Składowe główne: [[ 0.6778734   0.73517866]
+ [ 0.73517866 -0.6778734 ]]
+Wariancja wyjaśniona: [0.96318131 0.03681869]
+</pre></div>
+</div>
+<img alt="../_images/eda00310ee81b7ad452a4829c6568248941aaaf6dd23b74c27cdbeaf31da02d5.png" src="../_images/eda00310ee81b7ad452a4829c6568248941aaaf6dd23b74c27cdbeaf31da02d5.png" />
+</div>
+</div>
+</section>
+<section id="uporzadkowanie-wedlug-wariancji">
+<h2>Uporządkowanie według wariancji:<a class="headerlink" href="#uporzadkowanie-wedlug-wariancji" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Pierwsza składowa główna (PC1) jest taką liniową kombinacją oryginalnych zmiennych, która maksymalizuje wariancję danych. Inaczej mówiąc, PC1 jest taką oś, wzdłuż której dane są najbardziej rozproszone.</p></li>
+<li><p>Druga składowa główna (PC2) jest taką liniową kombinacją oryginalnych zmiennych, która maksymalizuje wariancję danych, ale jest ortogonalna (prostopadła) do PC1.</p></li>
+<li><p>Trzecia składowa główna (PC3) jest taką liniową kombinacją oryginalnych zmiennych, która maksymalizuje wariancję danych, ale jest ortogonalna do PC1 i PC2.</p></li>
+<li><p>Proces ten kontynuowany jest dla kolejnych składowych głównych, aż do wyczerpania wszystkich wymiarów danych.</p></li>
+</ul>
+<p>###Co zawiera pca.explained_variance_ratio_?</p>
+</section>
+<section id="proporcja-wyjasnionej-wariancji">
+<h2>“Proporcja wyjaśnionej wariancji”:<a class="headerlink" href="#proporcja-wyjasnionej-wariancji" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Atrybut ‘pca.explained_variance_ratio_’ jest tablicą, która zawiera proporcję wariancji wyjaśnionej przez każdą składową główną.</p></li>
+<li><p>Każdy element tej tablicy reprezentuje ułamek całkowitej wariancji danych, który jest wyjaśniony przez daną składową główną.</p></li>
+<li><p>Suma proporcji:</p></li>
+<li><p>Suma wszystkich elementów w pca.explained_variance_ratio_ jest równa 1 (lub 100%, jeśli wyrażona w procentach), co oznacza, że cała wariancja danych jest wyjaśniona przez wszystkie składowe główne razem.</p></li>
+<li><p>Interpretacja:</p></li>
+<li><p>Wartości w pca.explained_variance_ratio_ pozwalają ocenić, ile informacji (wariancji) jest zawarte w każdej składowej głównej.</p></li>
+<li><p>Im wyższa wartość dla danej składowej głównej, tym więcej informacji ta składowa główna zawiera.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./klasyczne_ml"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rozdzial_09_Uczenie_nadzorowane.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Proste zadania klasyfikacji</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rozdzial_11_Modele_liniowe_i_drzewiaste.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modele liniowe: regresja liniowa, regresja logistyczna</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Algorytm K-średnich (K-means)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opis-algorytmu">Opis algorytmu:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-dbscan-density-based-spatial-clustering-of-applications-with-noise">Algorytm DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Opis algorytmu:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametr-eps">Parametr eps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wplyw-na-wyniki">Wpływ na wyniki:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametr-min-samples">Parametr min_samples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Wpływ na wyniki:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-hierarchicznej-klasteryzacji-hierarchical-clustering">Algorytm Hierarchicznej Klasteryzacji (Hierarchical Clustering)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Opis algorytmu:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#znaczenie-zmiennej-linked">Znaczenie zmiennej ‘linked’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#parametr-single">Parametr ‘single’</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#znaczenie-parametru-single-okresla-on-metode-obliczania-odleglosci-miedzy-klastrami-w-algorytmie-hierarchicznej-klasteryzacji">Znaczenie parametru ‘single’: określa on metodę obliczania odległości między klastrami w algorytmie hierarchicznej klasteryzacji.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inne-metody-laczenia">Inne “metody łączenia”:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-gaussowskich-mieszanin-gaussian-mixture-models-gmm">Algorytm Gaussowskich Mieszanin (Gaussian Mixture Models, GMM)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Opis algorytmu:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algorytm-analizy-glownych-skladowych-principal-component-analysis-pca">Algorytm Analizy Głównych Składowych (Principal Component Analysis, PCA)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Opis algorytmu:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uporzadkowanie-wedlug-wariancji">Uporządkowanie według wariancji:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proporcja-wyjasnionej-wariancji">“Proporcja wyjaśnionej wariancji”:</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
